@@ -1,0 +1,10 @@
+
+.seminar__item {
+  margin: 30px 0;
+  width: 800px;
+  border: 1px #333 solid;
+}
+
+.seminar__item > span {
+  display: block;
+}
