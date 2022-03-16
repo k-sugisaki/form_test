@@ -75,8 +75,10 @@
         <dt class="category">
           <span class="error-php"><?php if (isset($error['category'])) echo $error['category']; ?></span>
         </dt>
-        <input type="radio" name="category" value="member" />会員
-        <input type="radio" name="category" value="not-member" />一般
+        <input type="radio" id="category_member" name="category" value="member" />
+        <label for="category_member">会員</label>
+        <input type="radio" id="category_not-member" name="category" value="not-member" />
+        <label for="category_not-member">一般</label>
         </dd>
       </dl>
       <div class="participant_info">
