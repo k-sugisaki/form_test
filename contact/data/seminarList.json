@@ -1,17 +1,21 @@
 [
   {
+    "id":"01",
     "title": "12/1 社会保険実務セミナー14:00～16:30",
     "holding_by_zoom": true
   },
   {
+    "id":"02",
     "title": "12/2 社会保険実務セミナー14:00～16:30",
     "holding_by_zoom": false
   },
   {
+    "id":"03",
     "title": "12/3 社会保険実務セミナー14:00～16:30",
     "holding_by_zoom": true
   },
   {
+    "id":"04",
     "title": "12/4 社会保険実務セミナー14:00～16:30",
     "holding_by_zoom": false
   }
