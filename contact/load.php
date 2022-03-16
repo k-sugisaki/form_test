@@ -2,7 +2,7 @@
 session_start();
 
 require_once './libs/formValidation.php';
-require_once './libs/createSeminarList.php';
+require_once './libs/jsonDecode.php';
 
 //エラーがなく且つPOSTでのリクエストの場合
 if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
