@@ -30,10 +30,29 @@
     <h2>Form Practice</h2>
     <form action="" method="post" class="validationForm">
       <div class="seminar__list">
-        <?php
-        $cls = new Seminar();
-        $cls->createSeminarList($arr);
-        ?>
+        <?php foreach ($arr as $seminar) : ?>
+          <div class="seminar__item">
+            <div>
+              <?= '<input type="checkbox" id="checkbox_' . $seminar["id"] . '" name="seminar_' . $seminar["id"] . '" />' ?>
+              <?= '<label for="checkbox_' . $seminar["id"] . '">' . $seminar["title"] . '</label>' ?>
+            </div>
+            <?php if ($seminar["holding_by_zoom"]) : ?>
+              <div>
+                <span>参加方法</span>
+                <?= '<input type="radio" id="entry_venue_' . $seminar["id"] . '" name="entry_method_' . $seminar["id"] . '" value="venue" />' ?>
+                <?= '<label for="entry_venue_' . $seminar["id"] . '">会場</label>' ?>
+                <?= '<input type="radio" id="entry_zoom_' . $seminar["id"] . '" name="entry_method_' . $seminar["id"] . '" value="zoom" />' ?>
+                <?= '<label for="entry_zoom_' . $seminar["id"] . '">ZOOM</label>' ?>
+              </div>
+            <?php else : ?>
+              <?= '<input type="hidden" name="entry_method_' . $seminar["id"] . '" value="venue" />' ?>
+            <?php endif; ?>
+            <div>
+              <?= '<label for="seminar_text_' . $seminar["id"] . '">テキスト</label>' ?>
+              <?= '<input type="text" id="seminar_text_' . $seminar["id"] . '" name="seminar_text_' . $seminar["id"] . '" />冊' ?>
+            </div>
+          </div>
+        <?php endforeach; ?>
       </div>
       <dl>
         <dt class="corp_name">法人名:
