@@ -10,7 +10,7 @@ $url = "./data/seminarList.json";
 $json = file_get_contents($url);
 $arr = json_decode($json, true);
 
-include_once './views/index_view.php';
+include_once './action/views/index_view.php';
 
 //送信ボタンが押された場合の処理
 if (isset($_POST['submitted'])) {
