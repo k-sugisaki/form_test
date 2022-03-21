@@ -1,13 +1,5 @@
 <?php
 
-require_once './validation_common.php';
-
-//送信ボタンが押された場合の処理
-if (isset($_POST['submitted'])) {
-  $_POST = checkInput($_POST);
-  $error = array();
-}
-
 function escInput()
 {
   $params = [];

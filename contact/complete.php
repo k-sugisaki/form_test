@@ -10,9 +10,7 @@ $mail = $_SESSION['mail'];
 $user_name = $_SESSION['user_name'];
 $seminar = $_SESSION['seminar'];
 
-require './action.php';
-
-include_once './views/complete_view.php';
+include_once './action/views/complete_view.php';
 
 $_SESSION = array();
 session_destroy();
