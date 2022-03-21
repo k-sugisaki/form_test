@@ -1,5 +1,3 @@
-<?php require_once './load.php'; ?>
-
 <!doctype html>
 <html lang="ja">
 

@@ -1,17 +1,3 @@
-<?php
-session_start();
-
-$corp_name = $_SESSION['corp_name'];
-$tel = $_SESSION['tel'];
-$category = $_SESSION['category'];
-$name = $_SESSION['name'];
-$name_kana = $_SESSION['name_kana'];
-$mail = $_SESSION['mail'];
-$user_name = $_SESSION['user_name'];
-$seminar = $_SESSION['seminar'];
-
-require './action.php';
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -33,10 +19,5 @@ require './action.php';
   <p><?php echo $user_name[0]; ?></p>
     <!-- seminar[] の引っ張り成功 -->
   <p><?php echo $seminar[0]; ?></p>
-
-<?php
-$_SESSION = array();
-session_destroy();
-?>
 </body>
 </html>
