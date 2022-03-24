@@ -20,14 +20,13 @@ if (isset($_POST['submitted'])) {
 
   if ($POST_corp_name == '') {
     $error['corp_name'] = $error_text;
-    //制御文字、文字数をチェック
-  } else if (preg_match('/\A[[:^cntrl:]]{1,50}\z/u', $POST_corp_name) == 0) {
+  } else if (!isCorpName($POST_corp_name)) {
     $error['corp_name'] = $error_text;
   }
 
   if ($POST_tel == '') {
     $error['tel'] = $error_text;
-  } else if (preg_match('/^[0-9-]{6,9}$|^[0-9-]{13}$/', $POST_tel) == 0) {
+  } else if (!isPhoneNumber($POST_tel)) {
     $error['tel'] = $error_text;
   }
 
