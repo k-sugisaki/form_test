@@ -16,22 +16,32 @@ include_once './action/views/index_view.php';
 if (isset($_POST['submitted'])) {
   $_POST = checkInput($_POST);
   $error = array();
-}
 
-//エラーがなく且つPOSTでのリクエストの場合
-if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (isset($_POST['seminar']) && is_array($_POST['seminar'])) {
-    $_SESSION['seminar'] = $_POST['seminar'];
+  if ($POST_corp_name == '') {
+    $error['corp_name'] = $error_text;
+    //制御文字、文字数をチェック
+  } else if (preg_match('/\A[[:^cntrl:]]{1,50}\z/u', $POST_corp_name) == 0) {
+    $error['corp_name'] = $error_text;
   }
-  $_SESSION['corp_name'] = $_POST['corp_name'];
-  $_SESSION['tel'] = $_POST['tel'];
-  $_SESSION['category'] = $_POST['category'];
-  $_SESSION['name'] = $_POST['name'];
-  $_SESSION['name_kana'] = $_POST['name_kana'];
-  $_SESSION['mail'] = $_POST['mail'];
-  $_SESSION['user_name'] = $_POST['user_name'];
 
-  require_once './contact/action/create_csv/action.php';
-  header('Location: ./complete.php');
+  //エラーがなく且つPOSTでのリクエストの場合
+  if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
+
+    if (isset($_POST['seminar']) && is_array($_POST['seminar'])) {
+      $_SESSION['seminar'] = $_POST['seminar'];
+    }
+    $_SESSION['corp_name'] = $POST_corp_name;
+    $_SESSION['tel'] = $_POST['tel'];
+    $_SESSION['category'] = $_POST['category'];
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['name_kana'] = $_POST['name_kana'];
+    $_SESSION['mail'] = $_POST['mail'];
+    $_SESSION['user_name'] = $_POST['user_name'];
+
+    require_once './contact/action/create_csv/action.php';
+    header('Location: ./complete.php');
+    exit;
+  }
+  include_once './action/views/index_view.php';
 }
