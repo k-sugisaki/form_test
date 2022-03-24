@@ -24,7 +24,6 @@ class CorpNameClass
  */
 
 function isCorpName($str) {
-  # 電話番号以外の形式の場合
   if (60 < mb_strlen($str)) {
       return true;
   }
