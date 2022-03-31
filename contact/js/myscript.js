@@ -24,4 +24,4 @@ $('.primary_only:nth-child(n+2)').remove();
 // const columns = document.querySelectorAll('.entrant');
 // for (let i = 2; i < columns.length; i++) {
 //     columns[i].classList.add('off');
-}
+// }
