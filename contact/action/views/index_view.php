@@ -84,19 +84,19 @@
           <dt class="name">参加者名:
             <span class="error-php"><?php if (isset($error['name'])) echo $error['name']; ?></span>
           </dt>
-          <dd><input type="text" name="user_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+          <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
         </dl>
         <dl>
           <dt class="name_kana">フリガナ:
             <span class="error-php"><?php if (isset($error['name_kana'])) echo $error['name_kana']; ?></span>
           </dt>
-          <dd><input type="text" name="user_name_kana[]" class="required" /></dd>
+          <dd><input type="text" name="participant_name_kana[]" class="required" /></dd>
         </dl>
         <dl>
           <dt class="mail">メールアドレス:
             <span class="error-php"><?php if (isset($error['mail'])) echo $error['mail']; ?></span>
           </dt>
-          <dd><input type="text" name="user_mail[]" class="required" /></dd>
+          <dd><input type="text" name="mail[]" class="required" /></dd>
         </dl>
       </div>
       <div class="participant_info">
@@ -104,22 +104,23 @@
           <dt class="name">参加者名:
             <span class="error-php"><?php if (isset($error['name'])) echo $error['name']; ?></span>
           </dt>
-          <dd><input type="text" name="user_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+          <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
         </dl>
         <dl>
           <dt class="name_kana">フリガナ:
             <span class="error-php"><?php if (isset($error['name_kana'])) echo $error['name_kana']; ?></span>
           </dt>
-          <dd><input type="text" name="user_name_kana[]" class="required" /></dd>
+          <dd><input type="text" name="participant_name_kana[]" class="required" /></dd>
         </dl>
         <dl>
           <dt class="mail">メールアドレス:
             <span class="error-php"><?php if (isset($error['mail'])) echo $error['mail']; ?></span>
           </dt>
-          <dd><input type="text" name="user_mail[]" class="required" /></dd>
+          <dd><input type="text" name="mail[]" class="required" /></dd>
         </dl>
       </div>
       <button name="submitted" type="submit" class="btn btn-primary">送信</button>
+      <input type="hidden" name="csrf_token" value="<?=$csrf_token?>">
     </form>
   </main>
 </body>
