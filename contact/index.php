@@ -30,6 +30,10 @@ if (isset($_POST['submitted'])) {
     $error['tel'] = $error_text;
   }
 
+  if ($POST_category == '') {
+    $error['category'] = $empty_text;
+  }
+
   //エラーがなく且つPOSTでのリクエストの場合
   // if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
