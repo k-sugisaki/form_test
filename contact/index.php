@@ -18,19 +18,19 @@ if (isset($_POST['submitted'])) {
   $_POST = checkInput($_POST);
   $error = array();
 
-  if ($POST_corp_name == '') {
+  if (!isset($POST_corp_name) || $POST_corp_name == '') {
     $error['corp_name'] = $error_text;
   } else if (!isCorpName($POST_corp_name)) {
     $error['corp_name'] = $error_text;
   }
 
-  if ($POST_tel == '') {
+  if (!isset($POST_tel) || $POST_tel == '') {
     $error['tel'] = $error_text;
   } else if (!isPhoneNumber($POST_tel)) {
     $error['tel'] = $error_text;
   }
 
-  if ($POST_category == '') {
+  if (!isset($POST_category) || $POST_category == '') {
     $error['category'] = $empty_text;
   }
 
