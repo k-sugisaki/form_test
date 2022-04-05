@@ -91,10 +91,9 @@ span.list-item {
     left: 390px;
 }
 /* 参加者二人目以降、表には表示されないがデータ出力に必要事項(法人名・電話番号・会員/一般) */
-/* うまくいってないため相談する（生田） */
-/* .primary_only :nth-child(n+2){
+.hide {
     display:none;
-} */
+}
 
 /* 『お問合せフォーム』 */
 .message{
@@ -112,14 +111,6 @@ span.list-item {
     clear:both;
     border-bottom:1px dotted #ccc;
 }
-
-
-/* 一人目の参加者のみ『代表者』の記載をし、それ以外の参加者は消す */
-/* ※コチラうまくいっていないため相談する（生田） */
-/* .representative:nth-child(n + 2){
-    display:none;
-} */
-
 
 /* 送信ボタン */
 .submit{

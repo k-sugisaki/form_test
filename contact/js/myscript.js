@@ -1,27 +1,44 @@
 /*js*/
 // ボタンを押したら参加人数を追加できる
-function addForm() {
-const ELEMENTS = document.getElementById("target");
-const copied = ELEMENTS.lastElementChild.cloneNode(true);
-ELEMENTS.appendChild(copied);
-}
-// ボタンにイベントハンドラをセット
-const BTN = document.getElementById("add"); 
-BTN.addEventListener("click", addForm, false);
-
-// 2人目以降の参加者から（代表者）を削除
-// うまくいっていないので相談する
-$('.representative:nth-child(n+2)').remove();
-
-// 代表者のみの入力項目を削除（法人名・電話番号・会員or一般）
-// うまくいっていないので相談する
-$('.primary_only:nth-child(n+2)').remove();
-
-// 二人目以降の参加者にクラスを追加（削除ボタンをつけるため）
-// const REMOVE = document.getElementsByClassName("entrant");
-// REMOVE[1].classList.add("off");
-// パターン２（どちらもうまくいっていない）
-// const columns = document.querySelectorAll('.entrant');
-// for (let i = 2; i < columns.length; i++) {
-//     columns[i].classList.add('off');
-// }
+document.getElementById("add").onclick = function(){
+    var mydiv = document.getElementById("new");
+    let html ="";
+    html += '<div class="entrant ">'
+    html += '<div class="primary_only hide">'
+    html += '<div class="container">'
+    html += '<p class="item">'
+    html += '法人名 <span class="required">*必須</span></p>'
+    html += '<p class="input">'
+    html += '<span class="corporation">'
+    html += '<input type="text" name="corporation" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
+    html += '</div>'
+    html += '<div class="container">'
+    html += '<p class="item">'
+    html += '電話番号 <span class="required">*必須</span></p>'
+    html += '<p class="input">'
+    html += '<span class="tel"><input type="tel" name="tel" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
+    html += '</div>'
+    html += '<div class="container member">'
+    html += '<p class="item">'
+    html += '<label><input type="radio" name="level" value="member" />会員</label>'
+    html += '<label><input type="radio" name="level" value="ordinary" />一般</label>'
+    html += '<span class="required">&nbsp;*必須(どちらか選択してください)</span>'
+    html += '</p></div></div>'
+    html += '<div class="container">'
+    html += '<p class="item">'
+    html += '参加者名<span class="required">*必須</span></p>'
+    html += '<p class="input">'
+    html += '<span class="participant"><input type="text" name="participant" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
+    html += '</div>'
+    html += '<div class="container">'
+    html += '<p class="item">フリガナ <span class="required">*必須</span></p>'
+    html += '<p class="input">'
+    html += '<span class="participant-2"><input type="text" name="participant-2" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
+    html += '</div>'
+    html += '<div class="container">'
+    html += '<p class="item">メールアドレス <span class="required">*必須</span></p>'
+    html += '<p class="input">'
+    html += '<span class="mail"><input type="email" name="mail" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
+    html += '</div>'
+    mydiv.innerHTML = html;
+  }
