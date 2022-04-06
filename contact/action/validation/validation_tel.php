@@ -24,7 +24,7 @@ class TelClass
  */
 
 function isPhoneNumber($str) {
-  if (!preg_match("/^[0-9-]{6,9}$|^[0-9-]{13}$/", $str)) {
+  if (preg_match("/^[0-9-]{6,9}$|^[0-9-]{13}$/", $str)) {
       return true;
   }
   return false;

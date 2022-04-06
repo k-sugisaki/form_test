@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 
 // ランダムな文字列を生成してセッションに設定
 $toke_byte = openssl_random_pseudo_bytes(16);
@@ -10,6 +11,7 @@ $_SESSION['csrf_token'] = $csrf_token;
 require_once './action/validation/validation_common.php';
 require_once './action/validation/validation_corpName.php';
 require_once './action/validation/validation_tel.php';
+require_once './action/validation/validation_category.php';
 
 // json読み込み
 $url = "./data/seminarList.json";
@@ -45,21 +47,18 @@ if (
     }
 
     //それぞれの値をセッションに保存
-    // if (isset($_POST['seminar']) && is_array($_POST['seminar'])) {
-    //   $_SESSION['seminar'] = $_POST['seminar'];
-    // }
     $_SESSION['corp_name'] = $POST_corp_name;
-    $_SESSION['tel'] = $_POST_tel;
-    $_SESSION['category'] = $_POST_category;
+    $_SESSION['tel'] = $POST_tel;
+    $_SESSION['category'] = $POST_category;
     // $_SESSION['participant_name'] = $_POST_participant_name;
     // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
     // $_SESSION['mail'] = $_POST_mail;
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-      require_once './contact/action/create_csv/action.php';
+      // require_once './contact/action/create_csv/action.php';
       header('Location: ./complete.php');
-      exit;
+    exit;
     }
     include_once './action/views/index_view.php';
   }
