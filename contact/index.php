@@ -9,6 +9,8 @@ if (!isset($_SESSION['csrf_token'])) {
   $toke_byte = openssl_random_pseudo_bytes(16);
   $csrf_token = bin2hex($toke_byte);
   $_SESSION['csrf_token'] = $csrf_token;
+} else {
+  $csrf_token = $_SESSION['csrf_token'];
 }
 
 // 関数ファイル読み込み
@@ -25,10 +27,13 @@ $arr = json_decode($json, true);
 include_once './action/views/index_view.php';
 
 // 先に保存したトークンと送信されたトークンが一致するか確認
+$token = filter_input(INPUT_POST, 'csrf_token');
 if (
-  isset($_POST["csrf_token"])
-  && $_POST["csrf_token"] === $_SESSION['csrf_token']
+  empty($_SESSION["csrf_token"])
+  || $token !== $_SESSION['csrf_token']
 ) {
+  // die('正規の画面からご利用ください。');
+} else {
   //送信ボタンが押された場合の処理
   if (isset($_POST['submitted'])) {
     $_POST = checkInput($_POST);
