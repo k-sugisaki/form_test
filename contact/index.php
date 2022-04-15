@@ -1,11 +1,15 @@
 <?php
-session_start();
-ob_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+  ob_start();
+}
 
 // ランダムな文字列を生成してセッションに設定
-$toke_byte = openssl_random_pseudo_bytes(16);
-$csrf_token = bin2hex($toke_byte);
-$_SESSION['csrf_token'] = $csrf_token;
+if (!isset($_SESSION['csrf_token'])) {
+  $toke_byte = openssl_random_pseudo_bytes(16);
+  $csrf_token = bin2hex($toke_byte);
+  $_SESSION['csrf_token'] = $csrf_token;
+}
 
 // 関数ファイル読み込み
 require_once './action/validation/validation_common.php';
@@ -58,7 +62,7 @@ if (
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       // require_once './contact/action/create_csv/action.php';
       header('Location: ./complete.php');
-    exit;
+      exit;
     }
     include_once './action/views/index_view.php';
   }
