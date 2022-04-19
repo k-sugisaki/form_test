@@ -29,11 +29,9 @@ include_once './action/views/index_view.php';
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
 if (
-  empty($_SESSION["csrf_token"])
-  || $token !== $_SESSION['csrf_token']
+  isset($_SESSION["csrf_token"])
+  && $token === $_SESSION['csrf_token']
 ) {
-  // die('正規の画面からご利用ください。');
-} else {
   //送信ボタンが押された場合の処理
   if (isset($_POST['submitted'])) {
     $_POST = checkInput($_POST);
