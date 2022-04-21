@@ -23,7 +23,7 @@ class ParticipantNameKanaClass
  * @return boolean true：エラー無し false：validationエラーあり
  */
 
-function isParticipantName($str) {
+function isParticipantNameKana($str) {
   if (60 < mb_strlen($str)) {
       return true;
   }

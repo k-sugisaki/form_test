@@ -53,18 +53,38 @@ if (
       $error['category'] = $empty_text;
     }
 
+    $count = (int)$_POST['participant_count'];
+    if (!ctype_digit($count)) {
+      for ($i = 0; $i < $count + 1; $i++) {
+        if (!isset($POST_participant_name[$i]) || $POST_participant_name[$i] == '') {
+          $error['name'] = $error_text;
+        } else if (!isParticipantName($POST_participant_name[$i])) {
+          $error['name'] = $error_text;
+        }
+
+        if (!isset($POST_participant_name_kana[$i]) || $POST_participant_name_kana[$i] == '') {
+          $error['name_kana'] = $error_text;
+        } else if (!isParticipantNameKana($POST_participant_name_kana[$i])) {
+          $error['name_kana'] = $error_text;
+        }
+
+        if (!isset($POST_mail[$i]) || $POST_mail[$i] == '') {
+          $error['mail'] = $error_text;
+        }
+      }
+    }
     $seminar = $_POST['seminar'];
     foreach ((array)$seminar as $index => $seminars) {
-      if($seminars['seminar_title'] === '0'){
+      if ($seminars['seminar_title'] === '0') {
         continue;
       }
-      $trimSeminar = array_map('trim' , $seminars);
+      $trimSeminar = array_map('trim', $seminars);
 
-      if ($trimSeminar['entry_method'] === ''){
+      if ($trimSeminar['entry_method'] === '') {
         $error["seminar_method_' . $index . '"] = $error_text;
       };
-      
-      if (!ctype_digit($trimSeminar['seminar_text'])){
+
+      if (!ctype_digit($trimSeminar['seminar_text'])) {
         $error["seminar_text_' . $index . '"] = $error_text;
       };
 
@@ -78,7 +98,9 @@ if (
     // $_SESSION['participant_name'] = $_POST_participant_name;
     // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
     // $_SESSION['mail'] = $_POST_mail;
-    $_SESSION['seminar'] = $POST_seminars;
+    if(!empty($POST_seminars)){
+      $_SESSION['seminar'] = $POST_seminars;
+    }
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
