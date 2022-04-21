@@ -53,6 +53,24 @@ if (
       $error['category'] = $empty_text;
     }
 
+    $seminar = $_POST['seminar'];
+    foreach ((array)$seminar as $index => $seminars) {
+      if($seminars['seminar_title'] === '0'){
+        continue;
+      }
+      $trimSeminar = array_map('trim' , $seminars);
+
+      if ($trimSeminar['entry_method'] === ''){
+        $error["seminar_method_' . $index . '"] = $error_text;
+      };
+      
+      if (!ctype_digit($trimSeminar['seminar_text'])){
+        $error["seminar_text_' . $index . '"] = $error_text;
+      };
+
+      $POST_seminars[] = array_values($trimSeminar);
+    }
+
     //それぞれの値をセッションに保存
     $_SESSION['corp_name'] = $POST_corp_name;
     $_SESSION['tel'] = $POST_tel;
@@ -60,6 +78,7 @@ if (
     // $_SESSION['participant_name'] = $_POST_participant_name;
     // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
     // $_SESSION['mail'] = $_POST_mail;
+    $_SESSION['seminar'] = $POST_seminars;
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
