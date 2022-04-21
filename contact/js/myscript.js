@@ -1,7 +1,8 @@
 /*js*/
 // ボタンを押したら参加人数を追加できる
+
 document.getElementById("add").onclick = function(){
-    var mydiv = document.getElementById("new");
+  var mydiv = document.getElementById("new");
     let html ="";
     html += '<div class="entrant ">'
     html += '<div class="primary_only hide">'
@@ -40,5 +41,10 @@ document.getElementById("add").onclick = function(){
     html += '<p class="input">'
     html += '<span class="mail"><input type="email" name="mail" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
     html += '</div>'
-    mydiv.innerHTML = html;
+    html += '<div class="button"><div id="off" class="off"><img src="img/cross.png" /></div></div>'
+    mydiv.insertAdjacentHTML('beforeend',html);
+    /* 参加者削除ボタン */
+    document.getElementById("off").onclick = function(){
+      mydiv.remove();
+    }
   }
