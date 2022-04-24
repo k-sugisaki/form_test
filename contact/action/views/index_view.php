@@ -56,22 +56,22 @@
           <span class="error-php"><?php if (isset($error['corp_name'])) echo $error['corp_name']; ?></span>
           </span>
         </dt>
-        <dd><input type="text" id="corp_name" name="corp_name" required class="required" /></dd>
+        <dd><input type="text" id="corp_name" name="corp_name" required class="required" value="<?= $POST_corp_name ?>"/></dd>
       </dl>
       <dl>
         <dt class="tel">
           <label for="tel">電話番号:</label>
           <span class="error-php"><?php if (isset($error['tel'])) echo $error['tel']; ?></span>
         </dt>
-        <dd><input type="tel" id="tel" name="tel" required class="required" /></dd>
+        <dd><input type="tel" id="tel" name="tel" required class="required" value="<?= $POST_tel ?>"/></dd>
       </dl>
       <dl>
         <dd>
         <dt class="category">
           <span class="error-php"><?php if (isset($error['category'])) echo $error['category']; ?></span>
         </dt>
-        <label><input type="radio" name="category" value="member" />会員</label>
-        <label><input type="radio" name="category" value="not-member" />一般</label>
+        <label><input type="radio" name="category" value="member" <?php if(isset($_POST['category']) && $_POST['category'] === 'member') echo 'checked' ?>/>会員</label>
+        <label><input type="radio" name="category" value="not-member" <?php if(isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?>/>一般</label>
         </dd>
       </dl>
       <div class="participant_info">
@@ -80,7 +80,7 @@
             <label for="participant_name_1">参加者名:</label>
             <span class="error-php"><?php if (isset($error['name_1'])) echo $error['name_1']; ?></span>
           </dt>
-          <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+          <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required"/></dd>
         </dl>
         <dl>
           <dt class="name_kana">
