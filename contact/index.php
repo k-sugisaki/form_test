@@ -14,10 +14,8 @@ if (!isset($_SESSION['csrf_token'])) {
 }
 
 // 関数ファイル読み込み
-require_once './action/validation/validation_common.php';
-require_once './action/validation/validation_corpName.php';
-require_once './action/validation/validation_tel.php';
-require_once './action/validation/validation_category.php';
+require_once './config/index.php';
+require_once ACTION_DIR . '/validation/index.php';
 
 // json読み込み
 $url = "./data/seminarList.json";
@@ -102,7 +100,7 @@ if (
     // $_SESSION['participant_name'] = $_POST_participant_name;
     // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
     // $_SESSION['mail'] = $_POST_mail;
-    if(!empty($POST_seminars)){
+    if (!empty($POST_seminars)) {
       $_SESSION['seminar'] = $POST_seminars;
     }
 
