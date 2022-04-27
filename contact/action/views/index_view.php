@@ -31,21 +31,21 @@
         <?php foreach ($arr as $index => $seminar) : ?>
           <div class="seminar__item">
             <div>
-              <?= '<input type="hidden" name="seminar[' . $index . '][seminar_title]" value="0"/>' ?>
-              <?= '<label><input type="checkbox" name="seminar[' . $index . '][seminar_title]" value="'. $seminar["id"] .'"/>' . $seminar["title"] . '</label>' ?>
+              <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="0"/>
+              <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>"/><?= $seminar["title"] ?></label>
             </div>
             <?php if ($seminar["holding_by_zoom"]) : ?>
               <div>
                 <span>参加方法</span>
-                <?= '<label><input type="radio" name="seminar[' . $index . '][entry_method]" value="venue" />会場</label>' ?>
-                <?= '<label><input type="radio" name="seminar[' . $index . '][entry_method]" value="zoom" />ZOOM</label>' ?>
+                <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
+                <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" />ZOOM</label>
               </div>
             <?php else : ?>
-              <?= '<input type="hidden" name="seminar[' . $index . '][entry_method]" value="venue" />' ?>
+              <input type="hidden" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />
             <?php endif; ?>
             <div>
-              <?= '<label for="seminar_text_' . $index . '">テキスト</label>' ?>
-              <?= '<input type="text" id="seminar_text_' . $index . '" name="seminar[' . $index . '][seminar_text]" />冊' ?>
+              <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
+              <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>"/>冊
             </div>
           </div>
         <?php endforeach; ?>
