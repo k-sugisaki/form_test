@@ -29,7 +29,6 @@ h2 {
 .formCol_01 {
     background-color: #E5EDF2;
     padding: 1% 0 1% 1%;
-    /* margin-bottom:10px; */
 }
 /* セミナー選ぶと参加方法とテキスト部数欄が表示される */
 /* チェック非表示OFF */
@@ -47,6 +46,7 @@ input:checked ~ .checked{
     background: #E5EDF2;
     padding: 1.5% 0 1% 1%;
     margin-top:10px;
+    position: relative;
 }
 /* 入力項目inputクラス幅調整 */
 .input{
@@ -73,15 +73,15 @@ span.list-item {
 
 
 /* 『参加人数を追加する』ボタンの文字 */
-.button span {
+.addition_button span {
     font-weight: bold;
     letter-spacing: 0.05em;
     vertical-align: middle;
 }
-.button img{
+.addition_button img{
     vertical-align: middle;
 }
-.button {
+.addition_button {
     position:relative;
     cursor:pointer;
 }
@@ -97,8 +97,12 @@ span.list-item {
 /* 参加者削除ボタン */
 .off{
     position:absolute;
-    top:-190px;
-    right:1%;
+    cursor:pointer;
+    top:10px;
+    right:3px;
+}
+.off img{
+    width:70%;
 }
 
 /* 『お問合せフォーム』 */
@@ -159,7 +163,7 @@ textarea{
 .message{
     padding-right:1.5%;
 }
-.button{
+.addition_button{
     background-color: #E5EDF2;
 }
 .position{
@@ -168,6 +172,7 @@ textarea{
     padding-bottom:2%;
 }
 .off{
-    
+    top:2px;
+    right:-1px;
 }
 }
