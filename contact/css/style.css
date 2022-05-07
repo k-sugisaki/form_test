@@ -23,6 +23,7 @@ h2 {
 /* セミナータイトルを縦並びにする */
 .list-item {
     display:block;
+    width: 590px;
     padding: 0 2% 0 1%;
 }
 /* セミナータイトル枠　背景色を#E5EDF2(薄いブルー)にする */
@@ -55,7 +56,6 @@ input:checked ~ .checked{
 /* セミナータイトルの装飾 */
 span.list-item {
     background: #fff;
-    width: 55%;
     margin: 1% 0;
 }
 /* 『タイトル名（複数選択可）』を太文字にする */
