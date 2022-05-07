@@ -107,6 +107,7 @@ if (
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+      $_SESSION['finish'] = true;
       // require_once './contact/action/create_csv/action.php';
       header('Location: ./complete.php');
       exit;

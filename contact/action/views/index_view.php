@@ -111,7 +111,7 @@
             <dd><input type="email" id="mail_1" name="mail[]" required class="required" /></dd>
           </dl>
         </div>
-        <input type="hidden" name="participant_count" value="1">
+        <input type="hidden" name="participant_count" value="0">
       <?php else : ?>
         <?php foreach ($POST_participant_name as $id => $val) : ?>
           <div class="participant_info">
