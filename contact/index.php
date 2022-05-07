@@ -102,7 +102,7 @@ if (
     
     $_SESSION['participant_name'] = $POST_participant_name;
     $_SESSION['participant_name_kana'] = $POST_participant_name_kana;
-    $_SESSION['mail'] = $_POST_mail;
+    $_SESSION['mail'] = $POST_mail;
     $_SESSION['seminar'] = $complete_seminars;
 
     //エラーがなく且つPOSTでのリクエストの場合
