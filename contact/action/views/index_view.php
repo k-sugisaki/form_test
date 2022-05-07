@@ -42,11 +42,11 @@
               <div>
                 <span>参加方法</span>
                 <?php if ($view_flag === 1) : ?>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" />ZOOM</label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" /><?=METHOD['venue']?></label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" /><?=METHOD['zoom']?></label>
                 <?php else : ?>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "venue")): ?> checked <?php endif; ?> />会場</label>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "zoom")): ?> checked <?php endif;?> />ZOOM</label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "venue")): ?> checked <?php endif; ?> /><?=METHOD['venue']?></label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "zoom")): ?> checked <?php endif;?> /><?=METHOD['zoom']?></label>
                 <?php endif; ?>
               </div>
             <?php else : ?>
@@ -83,8 +83,8 @@
         <dt class="category">
           <span class="error-php"><?php if (isset($error['category'])) echo $error['category']; ?></span>
         </dt>
-        <label><input type="radio" name="category" value="member" <?php if (isset($_POST['category']) && $_POST['category'] === 'member') echo 'checked' ?> />会員</label>
-        <label><input type="radio" name="category" value="not-member" <?php if (isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?> />一般</label>
+        <label><input type="radio" name="category" value="member" <?php if (isset($_POST['category']) && $_POST['category'] === 'member') echo 'checked' ?> /><?=CATEGORY['member']?></label>
+        <label><input type="radio" name="category" value="not-member" <?php if (isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?> /><?=CATEGORY['not-member']?></label>
         </dd>
       </dl>
       <?php if ($view_flag === 1) : ?>
@@ -111,7 +111,53 @@
             <dd><input type="email" id="mail_1" name="mail[]" required class="required" /></dd>
           </dl>
         </div>
-        <input type="hidden" name="participant_count" value="0">
+        <div class="participant_info">
+          <dl>
+            <dt class="name">
+              <label for="participant_name_1">参加者名:</label>
+              <span class="error-php"><?php if (isset($error['name_1'])) echo $error['name_1']; ?></span>
+            </dt>
+            <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+          </dl>
+          <dl>
+            <dt class="name_kana">
+              <label for="participant_name_kana_1">フリガナ:</label>
+              <span class="error-php"><?php if (isset($error['name_kana_1'])) echo $error['name_kana_1']; ?></span>
+            </dt>
+            <dd><input type="text" name="participant_name_kana[]" class="required" /></dd>
+          </dl>
+          <dl>
+            <dt class="mail">
+              <label for="mail_1">メールアドレス:</label>
+              <span class="error-php"><?php if (isset($error['mail_1'])) echo $error['mail_1']; ?></span>
+            </dt>
+            <dd><input type="email" id="mail_1" name="mail[]" required class="required" /></dd>
+          </dl>
+        </div>
+        <div class="participant_info">
+          <dl>
+            <dt class="name">
+              <label for="participant_name_1">参加者名:</label>
+              <span class="error-php"><?php if (isset($error['name_1'])) echo $error['name_1']; ?></span>
+            </dt>
+            <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+          </dl>
+          <dl>
+            <dt class="name_kana">
+              <label for="participant_name_kana_1">フリガナ:</label>
+              <span class="error-php"><?php if (isset($error['name_kana_1'])) echo $error['name_kana_1']; ?></span>
+            </dt>
+            <dd><input type="text" name="participant_name_kana[]" class="required" /></dd>
+          </dl>
+          <dl>
+            <dt class="mail">
+              <label for="mail_1">メールアドレス:</label>
+              <span class="error-php"><?php if (isset($error['mail_1'])) echo $error['mail_1']; ?></span>
+            </dt>
+            <dd><input type="email" id="mail_1" name="mail[]" required class="required" /></dd>
+          </dl>
+        </div>
+        <input type="hidden" name="participant_count" value="2">
       <?php else : ?>
         <?php foreach ($POST_participant_name as $id => $val) : ?>
           <div class="participant_info">

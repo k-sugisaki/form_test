@@ -103,12 +103,13 @@ if (
     $_SESSION['participant_name'] = $POST_participant_name;
     $_SESSION['participant_name_kana'] = $POST_participant_name_kana;
     $_SESSION['mail'] = $POST_mail;
+    $_SESSION['seminar_list'] = $POST_seminars;
     $_SESSION['seminar'] = $complete_seminars;
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['finish'] = true;
-      // require_once './contact/action/create_csv/action.php';
+      require_once './contact/action/create_csv/action.php';
       header('Location: ./complete.php');
       exit;
     }
