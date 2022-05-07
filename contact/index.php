@@ -22,12 +22,13 @@ $url = "./data/seminarList.json";
 $json = file_get_contents($url);
 $arr = json_decode($json, true);
 
-include_once './action/views/index_view.php';
 
 //最初は入力データがないのでこの初期化をしないとエラーとなる
 $POST_corp_name = isset($_POST['corp_name']) ? $POST_corp_name : NULL;
 $POST_tel = isset($_POST['tel']) ? $POST_tel : NULL;
 $view_flag = 1;
+
+include_once './action/views/index_view.php';
 
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
