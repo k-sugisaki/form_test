@@ -25,7 +25,7 @@ class ParticipantNameClass
  */
 
 function isParticipantName($str) {
-  $str = preg_replace('/\A[\x00\s]++|[\x00\s]++\z/u', '', $str);
+  $str = preg_replace('/\s/u', '', $str);
   if (60 > mb_strlen($str)) {
       return true;
   }
