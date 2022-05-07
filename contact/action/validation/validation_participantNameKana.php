@@ -24,7 +24,7 @@ class ParticipantNameKanaClass
  */
 
 function isParticipantNameKana($str) {
-  if (60 > mb_strlen($str) && preg_match("/^[ァ-ヶー]+$/u", $string)) {
+  if (60 > mb_strlen($str) && preg_match("/^[ァ-ヶー]+$/u", $str)) {
       return true;
   }
   return false;
