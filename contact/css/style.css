@@ -1,10 +1,178 @@
-
-.seminar__item {
-  margin: 30px 0;
-  width: 800px;
-  border: 1px #333 solid;
+/* css */
+*{
+    margin:0;
+    padding:0;
+    color:#333;
+}
+/* 横幅最大1000px */
+.application{
+    max-width: 1000px;
+    margin:0 auto;
+padding: 0 10px;}
+/* 『お申込み』フォーム画像 */
+.application h2{
+    background-image: url(../img/application_pagettl.png);
+    margin-bottom:2%;
+}
+/* 『お申込みフォーム』文字 */
+h2 {
+    width: 980px;
+    height: 60px;
+    text-indent: -9999px;
+}
+/* セミナータイトルを縦並びにする */
+.list-item {
+    display:block;
+    width: 590px;
+    padding: 0 2% 0 1%;
+}
+/* セミナータイトル枠　背景色を#E5EDF2(薄いブルー)にする */
+.formCol_01 {
+    background-color: #E5EDF2;
+    padding: 1% 0 1% 1%;
+}
+/* セミナー選ぶと参加方法とテキスト部数欄が表示される */
+/* チェック非表示OFF */
+.checked{
+    display:none;
+    background-color:#fff;
+    padding-left:6%;
+}
+/* チェックON表示 */
+input:checked ~ .checked{
+    display:block;
+}
+/* 代表者のみの入力項目 */
+.entrant{
+    background: #E5EDF2;
+    padding: 1.5% 0 1% 1%;
+    margin-top:10px;
+    position: relative;
+}
+/* 入力項目inputクラス幅調整 */
+.input{
+    padding-bottom:2%;
+}
+/* セミナータイトルの装飾 */
+span.list-item {
+    background: #fff;
+    margin: 1% 0;
+}
+/* 『タイトル名（複数選択可）』を太文字にする */
+.item {
+    font-weight:bold;
+}
+/* 『＊必須』文字赤く装飾 */
+.required {
+    color:#F00;
+}
+/* 会員or一般下部に余白を設ける */
+.member{
+    margin-bottom:8px;
 }
 
-.seminar__item > span {
-  display: block;
+
+/* 『参加人数を追加する』ボタンの文字 */
+.addition_button span {
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+}
+.addition_button img{
+    vertical-align: middle;
+}
+.addition_button {
+    position:relative;
+    cursor:pointer;
+}
+.position {
+    position:absolute;
+    bottom:20px;
+    left: 390px;
+}
+/* 参加者二人目以降、表には表示されないがデータ出力に必要事項(法人名・電話番号・会員/一般) */
+.hide {
+    display:none;
+}
+/* 参加者削除ボタン */
+.off{
+    position:absolute;
+    cursor:pointer;
+    top:10px;
+    right:3px;
+}
+.off img{
+    width:70%;
+}
+
+/* 『お問合せフォーム』 */
+.message{
+    background-color:#E5EDF2;
+    margin-top:10px;
+    padding:1%;
+}
+textarea{
+    width:100%;
+}
+/* お申し込みフォーム全体 */
+.block {
+    background: #fff;
+    display:block;
+    margin:0px 0px 60px;
+    padding:0px 0px 10px;
+    overflow: hidden;
+    clear:both;
+    border-bottom:1px dotted #ccc;
+}
+
+/* 送信ボタン */
+.submit{
+    margin-top:20px;
+}
+
+/* 以下よりレスポンシブ対応 */
+@media(max-width: 640px) {
+    span.list-item {
+        width: 95%;
+    }
+    h2 {
+        width:100%;
+        height:100%;
+        margin:0px 0px 10px 0px;
+        text-indent:0px;
+        background:#fff url(none)!important;
+        font-size:140%;
+        font-weight:bold;
+        color:#333333;
+    }
+    .block {
+        margin:0px 0px 30px;
+    }
+    .position {
+        position: static;
+        margin-left:43%;
+        margin-top:10px;
+        margin-bottom:10px;
+}
+.form-width{
+    width:100%;
+}
+.entrant{
+    padding: 1.5% 1.5% 1% 1%;
+}
+.message{
+    padding-right:1.5%;
+}
+.addition_button{
+    background-color: #E5EDF2;
+}
+.position{
+    margin:0;
+    padding-left:50%;
+    padding-bottom:2%;
+}
+.off{
+    top:2px;
+    right:-1px;
+}
 }
