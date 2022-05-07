@@ -18,14 +18,13 @@ class ParticipantNameKanaClass
 }
 
 /**
- * 参加者名カナ（60文字以下）
- *
+ * 参加者名カナ（60文字以下, 全角カナ）
  * @param String $str チェック文字列
  * @return boolean true：エラー無し false：validationエラーあり
  */
 
 function isParticipantNameKana($str) {
-  if (60 > mb_strlen($str)) {
+  if (60 > mb_strlen($str) && preg_match("/^[ァ-ヶー]+$/u", $string)) {
       return true;
   }
   return false;
