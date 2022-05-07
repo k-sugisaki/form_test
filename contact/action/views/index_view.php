@@ -22,7 +22,7 @@
       <hr>
     <?php endif; ?>
 
-    <h2>お申込みフォーム</h2>
+    <h2 class="form-title">お申込みフォーム</h2>
     <form action="" method="post" class="validationForm">
       <div class="seminar__list">
         <p class="item__title">

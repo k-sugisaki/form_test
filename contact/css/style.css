@@ -5,16 +5,16 @@
   color: #333;
 }
 /* 横幅最大1000px */
-.application,
 .validationForm {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
 }
 /* 『お申込み』フォーム画像 */
-.application h2 {
+.form-title {
+  max-width: 1000px;
+  margin: 0 auto 2%;
   background-image: url(../img/application_pagettl.png);
-  margin-bottom: 2%;
 }
 /* 『お申込みフォーム』文字 */
 h2 {
