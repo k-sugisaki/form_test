@@ -2,14 +2,11 @@
 <html lang="ja">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- CSS -->
+  <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
   <link rel="stylesheet" href="./css/style.css">
-
-  <title>PHP</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
