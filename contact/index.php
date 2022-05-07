@@ -77,10 +77,10 @@ if (
     }
     $seminar = $_POST['seminar'];
     foreach ((array)$seminar as $index => $seminars) {
-      if ($seminars['seminar_title'] === '0') {
-        continue;
-      }
       $trimSeminar = array_map('trim', $seminars);
+      // if ($seminars['seminar_title'] === '0') {
+      //   continue;
+      // }
 
       if ($trimSeminar['entry_method'] === '') {
         $error["seminar_method_' . $index . '"] = $error_text;
@@ -100,9 +100,7 @@ if (
     // $_SESSION['participant_name'] = $_POST_participant_name;
     // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
     // $_SESSION['mail'] = $_POST_mail;
-    if (!empty($POST_seminars)) {
-      $_SESSION['seminar'] = $POST_seminars;
-    }
+    $_SESSION['seminar'] = $POST_seminars;
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
