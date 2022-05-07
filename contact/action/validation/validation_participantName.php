@@ -25,7 +25,7 @@ class ParticipantNameClass
  */
 
 function isParticipantName($str) {
-  if (60 < mb_strlen($str)) {
+  if (60 > mb_strlen($str)) {
       return true;
   }
   return false;
