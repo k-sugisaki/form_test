@@ -69,3 +69,17 @@ $(document).on("click", '.off', function (e) {
   console.log(test);
   test.remove();
 });
+
+// // ID new要素内全て反映
+// document.getElementById("new").addEventListener('click', function(e) {
+//   // 親のクラス属性取得(バツ印用)
+//   test1 = event.target.parentNode.classList;
+  
+//   //親に特定のクラスが含んでいるか
+//   if (test1.contains('off')) {
+//     // 削除処理
+//     let test = event.target.closest('.entrant');
+//     console.log(test);
+//     test.remove();
+//     }
+// });
