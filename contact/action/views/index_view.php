@@ -45,8 +45,8 @@
                   <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
                   <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" />ZOOM</label>
                 <?php else : ?>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && $POST_seminars[$index][1] == "venue"): ?> checked <?php endif; ?> />会場</label>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && $POST_seminars[$index][1] == "zoom"): ?> checked <?php endif;?> />ZOOM</label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && $POST_seminars[$index][1] == "venue") : ?> checked <?php endif; ?> />会場</label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && $POST_seminars[$index][1] == "zoom") : ?> checked <?php endif; ?> />ZOOM</label>
                 <?php endif; ?>
               </div>
             <?php else : ?>
@@ -120,25 +120,25 @@
                 <label for="participant_name_2">参加者名:</label>
                 <span class="error-php"><?php if (isset($error['name_2'])) echo $error['name_2']; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) { ?> value="<?php echo $val ?>" <?php } ?>class="required" /></dd>
+              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
             </dl>
             <dl>
               <dt class="name_kana">
                 <label for="participant_name_kana_2">フリガナ:</label>
                 <span class="error-php"><?php if (isset($error['name_kana_2'])) echo $error['name_kana_2']; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) { ?> value="<?php echo $POST_participant_name_kana[$id] ?>" <?php } ?> class="required" /></dd>
+              <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) : ?> value="<?= $POST_participant_name_kana[$id] ?>" <?php endif; ?> class="required" /></dd>
             </dl>
             <dl>
               <dt class="mail">
                 <label for="mail_2">メールアドレス:</label>
                 <span class="error-php"><?php if (isset($error['mail_2'])) echo $error['mail_2']; ?></span>
               </dt>
-              <dd><input type="email" id="mail_2" name="mail[]" required <?php if (isset($POST_mail[$id])) { ?> value="<?php echo $POST_mail[$id] ?>" <?php } ?>class="required" /></dd>
+              <dd><input type="email" id="mail_2" name="mail[]" required <?php if (isset($POST_mail[$id])) : ?> value="<?= $POST_mail[$id] ?>" <?php endif; ?>class="required" /></dd>
             </dl>
           </div>
         <?php endforeach; ?>
-        <input type="hidden" name="participant_count" <?php if (isset($id)) { ?> value="<?php echo $id ?>" <?php } ?>>
+        <input type="hidden" name="participant_count" <?php if (isset($id)) : ?> value="<?= $id ?>" <?php endif; ?>>
       <?php endif; ?>
       <button name="submitted" type="submit" class="btn btn-primary">送信</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
