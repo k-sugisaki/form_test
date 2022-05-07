@@ -16,6 +16,7 @@ if (!isset($_SESSION['csrf_token'])) {
 // 関数ファイル読み込み
 require_once './config/index.php';
 require_once ACTION_DIR . '/validation/index.php';
+require_once './action/mails/mail.php';
 
 // json読み込み
 $url = "./data/seminarList.json";
@@ -109,7 +110,7 @@ if (
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['finish'] = true;
-      require_once './contact/action/create_csv/action.php';
+      require_once '../contact/action/create_csv/action.php';
       header('Location: ./complete.php');
       exit;
     }
