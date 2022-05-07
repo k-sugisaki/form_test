@@ -4,14 +4,15 @@ class ParticipantNameClass
   function trimInput()
   {
     $params = [];
-    $params["participant_name"] = trim(filter_input(INPUT_POST, 'participant_name'));
+    $params = filter_input(INPUT_POST, 'participant_name',  FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+    $params = array_map('trim', $params);
     return $params;
   }
 
   function useInput()
   {
     $trim = self::trimInput();
-    $trim_participant_name = $trim['participant_name'];
+    $trim_participant_name = $trim;
     return $trim_participant_name;
   }
 }
