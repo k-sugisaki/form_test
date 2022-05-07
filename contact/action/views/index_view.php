@@ -32,7 +32,11 @@
           <div class="seminar__item">
             <div>
               <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="0"/>
-              <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>"/><?= $seminar["title"] ?></label>
+              <?php if ($view_flag === 2 && (isset($POST_seminars[$index]) && $POST_seminars[$index][0] == $seminar["title"])) : ?>
+                <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked/><?= $seminar["title"] ?></label>
+              <?php else:?>
+                <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>"/><?= $seminar["title"] ?></label>
+              <?php endif;?>
             </div>
             <?php if ($seminar["holding_by_zoom"]) : ?>
               <div>

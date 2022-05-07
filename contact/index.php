@@ -102,6 +102,7 @@ if (
     // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
     // $_SESSION['mail'] = $_POST_mail;
     $_SESSION['seminar'] = $POST_seminars;
+    var_dump(json_encode($POST_seminars));
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
