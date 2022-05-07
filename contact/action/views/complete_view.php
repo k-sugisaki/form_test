@@ -14,10 +14,8 @@
       今しばらくお待ちくださいませ。
   </p>
   <h2>お申込み内容</h2>
-  <p><?php echo $name; ?></p>
-  <!-- user_name[] の引っ張り成功 -->
-  <p><?php echo $user_name[0]; ?></p>
-    <!-- seminar[] の引っ張り成功 -->
-  <p><?php echo $seminar[0]; ?></p>
+  <p><?php echo $corp_name; ?></p>
+  <p><?php echo $name[0]; ?></p>
+  <p><?php echo $seminar; ?></p>
 </body>
 </html>

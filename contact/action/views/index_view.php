@@ -32,7 +32,7 @@
           <div class="seminar__item">
             <div>
               <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="0" />
-              <?php if ($view_flag === 2 && (isset($POST_seminars[$index]) && $POST_seminars[$index][0] == $seminar["title"])) : ?>
+              <?php if ($view_flag === 2 && (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][0]) && $POST_seminars[$index][0] == $seminar["title"]))) : ?>
                 <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked /><?= $seminar["title"] ?></label>
               <?php else : ?>
                 <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><?= $seminar["title"] ?></label>
@@ -45,8 +45,8 @@
                   <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
                   <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" />ZOOM</label>
                 <?php else : ?>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && $POST_seminars[$index][1] == "venue"): ?> checked <?php endif; ?> />会場</label>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && $POST_seminars[$index][1] == "zoom"): ?> checked <?php endif;?> />ZOOM</label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "venue")): ?> checked <?php endif; ?> />会場</label>
+                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "zoom")): ?> checked <?php endif;?> />ZOOM</label>
                 <?php endif; ?>
               </div>
             <?php else : ?>
@@ -55,9 +55,9 @@
             <div>
               <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" />冊
+                <input type="text" id="<?= 'seminar_text_'. $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" />冊
               <?php else : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" />冊
+                <input type="text" id="<?= 'seminar_text_'. $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" />冊
               <?php endif; ?>
             </div>
           </div>
@@ -117,24 +117,24 @@
           <div class="participant_info">
             <dl>
               <dt class="name">
-                <label for="participant_name_2">参加者名:</label>
-                <span class="error-php"><?php if (isset($error['name_2'])) echo $error['name_2']; ?></span>
+                <label for="participant_name_<?=$id?>">参加者名:</label>
+                <span class="error-php"><?php if (isset($error['name_'.$id])) echo $error['name_'.$id]; ?></span>
               </dt>
               <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) { ?> value="<?php echo $val ?>" <?php } ?>class="required" /></dd>
             </dl>
             <dl>
               <dt class="name_kana">
-                <label for="participant_name_kana_2">フリガナ:</label>
-                <span class="error-php"><?php if (isset($error['name_kana_2'])) echo $error['name_kana_2']; ?></span>
+                <label for="participant_name_kana_<?=$id?>">フリガナ:</label>
+                <span class="error-php"><?php if (isset($error['name_kana_'.$id])) echo $error['name_kana_.$id']; ?></span>
               </dt>
               <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) { ?> value="<?php echo $POST_participant_name_kana[$id] ?>" <?php } ?> class="required" /></dd>
             </dl>
             <dl>
               <dt class="mail">
-                <label for="mail_2">メールアドレス:</label>
-                <span class="error-php"><?php if (isset($error['mail_2'])) echo $error['mail_2']; ?></span>
+                <label for="mail_<?=$id?>">メールアドレス:</label>
+                <span class="error-php"><?php if (isset($error['mail_'.$id])) echo $error['mail_'.$id]; ?></span>
               </dt>
-              <dd><input type="email" id="mail_2" name="mail[]" required <?php if (isset($POST_mail[$id])) { ?> value="<?php echo $POST_mail[$id] ?>" <?php } ?>class="required" /></dd>
+              <dd><input type="email" id="mail_<?=$id?>" name="mail[]" required <?php if (isset($POST_mail[$id])) { ?> value="<?php echo $POST_mail[$id] ?>" <?php } ?>class="required" /></dd>
             </dl>
           </div>
         <?php endforeach; ?>

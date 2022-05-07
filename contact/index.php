@@ -76,17 +76,20 @@ if (
       }
     }
     $seminar = $_POST['seminar'];
+    $complete_seminars = "";
     foreach ((array)$seminar as $index => $seminars) {
       $trimSeminar = array_map('trim', $seminars);
       if ($seminars['seminar_title'] === '0') {
+        $POST_seminars[] = [];
         continue;
       }
+      if (!$complete_seminars) $complete_seminars = $seminars['seminar_title'];
       if (isset($trimSeminar['entry_method']) && $trimSeminar['entry_method'] === '') {
-        $error["seminar_method_' . $index . '"] = $error_text;
+        $error["seminar_method_$index"] = $error_text;
       };
 
       if (!ctype_digit($trimSeminar['seminar_text'])) {
-        $error["seminar_text_' . $index . '"] = $error_text;
+        $error["seminar_text_$index"] = $error_text;
       };
 
       $POST_seminars[] = array_values($trimSeminar);
@@ -97,11 +100,10 @@ if (
     $_SESSION['tel'] = $POST_tel;
     $_SESSION['category'] = $POST_category;
     
-    // $_SESSION['participant_name'] = $_POST_participant_name;
-    // $_SESSION['participant_name_kana'] = $_POST_participant_name_kana;
-    // $_SESSION['mail'] = $_POST_mail;
-    $_SESSION['seminar'] = $POST_seminars;
-    var_dump(json_encode($POST_seminars));
+    $_SESSION['participant_name'] = $POST_participant_name;
+    $_SESSION['participant_name_kana'] = $POST_participant_name_kana;
+    $_SESSION['mail'] = $_POST_mail;
+    $_SESSION['seminar'] = $complete_seminars;
 
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
