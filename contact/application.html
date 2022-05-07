@@ -1,422 +1,271 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <!--mainCol-->
-    <div id="mainCol">
-      <div id="mainColInner">
-        <!-- これより以下お申込みフォーム -->
-        <!--contents-->
-        <div id="contents">
-          <!--/////contents start/////-->
-          <!--pageName-->
-          <div class="application">
-            <h2>お申込みフォーム</h2>
-            <!--block-->
-            <div class="block">
-              <div id="formAreaapplication">
-                <div class="formCol_01">
-                  <p class="item">
-                    タイトル名<span class="required"
-                      >*必須（複数選択可能です）</span
-                    >
-                  </p>
-                    <span class="list-item first">
-                      <input
-                        type="checkbox"
-                        name="Seminar[]"
-                        value="12/1 社会保険実務セミナー14:00～16:30"
-                      />
-                      &nbsp;<span> 12/1 社会保険実務セミナー14:00～16:30</span>
-                      <!-- 参加方法選択 -->
-                      <div class="checked">
-                        <p>
-                          <label
-                            >参加方法<span class="required">*必須</span
-                            >&nbsp;<input
-                              type="radio"
-                              name="level_1"
-                              value="venue"
-                            />
-                            会場
-                          </label>
-                          <label>
-                            <input type="radio" name="level_1" value="zoom" />
-                            ZOOM
-                          </label>
-                        </p>
-                        <!-- テキスト部数入力 -->
-                        <label
-                          >テキスト部数 <span class="required">*必須&nbsp;</span
-                          ><input
-                            type="text"
-                            name="books"
-                            value=""
-                            size="2"
-                            class="text_width"
-                            aria-required="true"
-                            aria-invalid="false"
-                          />冊</label
-                        >
-                      </div>
-                    </span>
-
-                    <span class="list-item">
-                      <input
-                        type="checkbox"
-                        name="Seminar[]"
-                        value="12/2 社会保険実務セミナー14:00～16:30"
-                      />
-                      &nbsp;<span> 12/2 社会保険実務セミナー14:00～16:30</span>
-                      <!-- 参加方法選択 -->
-                      <div class="checked">
-                        <p>
-                          <label
-                            >参加方法<span class="required">*必須</span
-                            >&nbsp;<input
-                              type="radio"
-                              name="level_2"
-                              value="venue"
-                            />
-                            会場
-                          </label>
-                          <label>
-                            <input type="radio" name="level_2" value="zoom" />
-                            ZOOM
-                          </label>
-                        </p>
-                        <!-- テキスト部数入力 -->
-                        <label
-                          >テキスト部数 <span class="required">*必須&nbsp;</span
-                          ><input
-                            type="text"
-                            name="books"
-                            value=""
-                            size="2"
-                            class="text_width"
-                            aria-required="true"
-                            aria-invalid="false"
-                          />冊</label
-                        >
-                      </div>
-                    </span>
-                    <span class="list-item">
-                      <input
-                        type="checkbox"
-                        name="Seminar[]"
-                        value="12/3 社会保険実務セミナー14:00～16:30"
-                      />
-                      &nbsp;<span> 12/3 社会保険実務セミナー14:00～16:30</span>
-                      <!-- 参加方法選択 -->
-                      <div class="checked">
-                        <p>
-                          <label
-                            >参加方法<span class="required">*必須</span
-                            >&nbsp;<input
-                              type="radio"
-                              name="level_3"
-                              value="venue"
-                            />
-                            会場
-                          </label>
-                          <label>
-                            <input type="radio" name="level_3" value="zoom" />
-                            ZOOM
-                          </label>
-                        </p>
-                        <!-- テキスト部数入力 -->
-                        <label
-                          >テキスト部数 <span class="required">*必須&nbsp;</span
-                          ><input
-                            type="text"
-                            name="books"
-                            value=""
-                            size="2"
-                            class="text_width"
-                            aria-required="true"
-                            aria-invalid="false"
-                          />冊</label
-                        >
-                      </div>
-                    </span>
-                    <span class="list-item">
-                      <input
-                        type="checkbox"
-                        name="Seminar[]"
-                        value="12/4 社会保険実務セミナー14:00～16:30"
-                      />
-                      &nbsp;<span> 12/4 社会保険実務セミナー14:00～16:30</span>
-                      <!-- 参加方法選択 -->
-                      <div class="checked">
-                        <p>
-                          <label
-                            >参加方法<span class="required">*必須</span
-                            >&nbsp;<input
-                              type="radio"
-                              name="level_4"
-                              value="venue"
-                            />
-                            会場
-                          </label>
-                          <label>
-                            <input type="radio" name="level_4" value="zoom" />
-                            ZOOM
-                          </label>
-                        </p>
-                        <!-- テキスト部数入力 -->
-                        <label
-                          >テキスト部数 <span class="required">*必須&nbsp;</span
-                          ><input
-                            type="text"
-                            name="books"
-                            value=""
-                            size="2"
-                            class="text_width"
-                            aria-required="true"
-                            aria-invalid="false"
-                          />冊</label
-                        >
-                      </div>
-                    </span>
-                    <span class="list-item">
-                      <input
-                        type="checkbox"
-                        name="Seminar[]"
-                        value="12/5 社会保険実務セミナー14:00～16:30"
-                      />
-                      &nbsp;<span> 12/5 社会保険実務セミナー14:00～16:30</span>
-                      <!-- 参加方法選択 -->
-                      <div class="checked">
-                        <p>
-                          <label
-                            >参加方法<span class="required">*必須</span
-                            >&nbsp;<input
-                              type="radio"
-                              name="level_5"
-                              value="venue"
-                            />
-                            会場
-                          </label>
-                          <label>
-                            <input type="radio" name="level_5" value="zoom" />
-                            ZOOM
-                          </label>
-                        </p>
-                        <!-- テキスト部数入力 -->
-                        <label
-                          >テキスト部数 <span class="required">*必須&nbsp;</span
-                          ><input
-                            type="text"
-                            name="books"
-                            value=""
-                            size="2"
-                            class="text_width"
-                            aria-required="true"
-                            aria-invalid="false"
-                          />冊</label
-                        >
-                      </div>
-                    </span>
-                    <span class="list-item last">
-                      <input
-                        type="checkbox"
-                        name="Seminar[]"
-                        value="12/6 社会保険実務セミナー14:00～16:30"
-                      />
-                      &nbsp;<span> 12/6 社会保険実務セミナー14:00～16:30</span>
-                      <!-- 参加方法選択 -->
-                      <div class="checked">
-                        <p>
-                          <label
-                            >参加方法<span class="required">*必須</span
-                            >&nbsp;<input
-                              type="radio"
-                              name="level_6"
-                              value="venue"
-                            />
-                            会場
-                          </label>
-                          <label>
-                            <input type="radio" name="level_6" value="zoom" />
-                            ZOOM
-                          </label>
-                        </p>
-                        <!-- テキスト部数入力 -->
-                        <label
-                          >テキスト部数 <span class="required">*必須&nbsp;</span
-                          ><input
-                            type="text"
-                            name="books"
-                            value=""
-                            size="2"
-                            class="text_width"
-                            aria-required="true"
-                            aria-invalid="false"
-                          />冊</label
-                        >
-                      </div>
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div class="formCol_02">
-                <div id="target">
-                  <div class="entrant"> 
-                    <div class="primary_only">
-                      <div class="container">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!--mainCol-->
+        <div id="mainCol">
+            <div id="mainColInner">
+                <!-- これより以下お申込みフォーム -->
+                <!--contents-->
+                <div id="contents">
+                    <!--/////contents start/////-->
+                    <!--pageName-->
+                    <div class="application">
+                        <h2>お申込みフォーム</h2>
+                        <!--block-->
+                        <div class="block">
+                            <div id="formAreaapplication">
+                                <div class="formCol_01">
+                                    <p class="item">
+                                        タイトル名<span class="required">*必須（複数選択可能です）</span>
+                                    </p>
+                                    <span class="list-item first">
+                                        <input type="checkbox" name="Seminar[]" value="12/1 社会保険実務セミナー14:00～16:30"/>
+                                        &nbsp;<span>12/1 社会保険実務セミナー14:00～16:30</span>
+                                        <!-- 参加方法選択 -->
+                                        <div class="checked">
+                                            <p>
+                                                <label>
+                                                    参加方法<span class="required">*必須</span>
+                                                    &nbsp;<input type="radio" name="level_1" value="venue"/>会場
+                          
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="level_1" value="zoom"/>ZOOM
+                          
+                                                </label>
+                                            </p>
+                                            <!-- テキスト部数入力 -->
+                                            <label>
+                                                テキスト部数 <span class="required">*必須&nbsp;</span>
+                                                <input type="text" name="books" value="" size="2" class="text_width" aria-required="true" aria-invalid="false"/>冊
+                                            </label>
+                                        </div>
+                                    </span>
+                                    <span class="list-item">
+                                        <input type="checkbox" name="Seminar[]" value="12/2 社会保険実務セミナー14:00～16:30"/>
+                                        &nbsp;<span>12/2 社会保険実務セミナー14:00～16:30</span>
+                                        <!-- 参加方法選択 -->
+                                        <div class="checked">
+                                            <p>
+                                                <label>
+                                                    参加方法<span class="required">*必須</span>
+                                                    &nbsp;<input type="radio" name="level_2" value="venue"/>会場
+                          
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="level_2" value="zoom"/>ZOOM
+                          
+                                                </label>
+                                            </p>
+                                            <!-- テキスト部数入力 -->
+                                            <label>
+                                                テキスト部数 <span class="required">*必須&nbsp;</span>
+                                                <input type="text" name="books" value="" size="2" class="text_width" aria-required="true" aria-invalid="false"/>冊
+                                            </label>
+                                        </div>
+                                    </span>
+                                    <span class="list-item">
+                                        <input type="checkbox" name="Seminar[]" value="12/3 社会保険実務セミナー14:00～16:30"/>
+                                        &nbsp;<span>12/3 社会保険実務セミナー14:00～16:30</span>
+                                        <!-- 参加方法選択 -->
+                                        <div class="checked">
+                                            <p>
+                                                <label>
+                                                    参加方法<span class="required">*必須</span>
+                                                    &nbsp;<input type="radio" name="level_3" value="venue"/>会場
+                          
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="level_3" value="zoom"/>ZOOM
+                          
+                                                </label>
+                                            </p>
+                                            <!-- テキスト部数入力 -->
+                                            <label>
+                                                テキスト部数 <span class="required">*必須&nbsp;</span>
+                                                <input type="text" name="books" value="" size="2" class="text_width" aria-required="true" aria-invalid="false"/>冊
+                                            </label>
+                                        </div>
+                                    </span>
+                                    <span class="list-item">
+                                        <input type="checkbox" name="Seminar[]" value="12/4 社会保険実務セミナー14:00～16:30"/>
+                                        &nbsp;<span>12/4 社会保険実務セミナー14:00～16:30</span>
+                                        <!-- 参加方法選択 -->
+                                        <div class="checked">
+                                            <p>
+                                                <label>
+                                                    参加方法<span class="required">*必須</span>
+                                                    &nbsp;<input type="radio" name="level_4" value="venue"/>会場
+                          
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="level_4" value="zoom"/>ZOOM
+                          
+                                                </label>
+                                            </p>
+                                            <!-- テキスト部数入力 -->
+                                            <label>
+                                                テキスト部数 <span class="required">*必須&nbsp;</span>
+                                                <input type="text" name="books" value="" size="2" class="text_width" aria-required="true" aria-invalid="false"/>冊
+                                            </label>
+                                        </div>
+                                    </span>
+                                    <span class="list-item">
+                                        <input type="checkbox" name="Seminar[]" value="12/5 社会保険実務セミナー14:00～16:30"/>
+                                        &nbsp;<span>12/5 社会保険実務セミナー14:00～16:30</span>
+                                        <!-- 参加方法選択 -->
+                                        <div class="checked">
+                                            <p>
+                                                <label>
+                                                    参加方法<span class="required">*必須</span>
+                                                    &nbsp;<input type="radio" name="level_5" value="venue"/>会場
+                          
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="level_5" value="zoom"/>ZOOM
+                          
+                                                </label>
+                                            </p>
+                                            <!-- テキスト部数入力 -->
+                                            <label>
+                                                テキスト部数 <span class="required">*必須&nbsp;</span>
+                                                <input type="text" name="books" value="" size="2" class="text_width" aria-required="true" aria-invalid="false"/>冊
+                                            </label>
+                                        </div>
+                                    </span>
+                                    <span class="list-item last">
+                                        <input type="checkbox" name="Seminar[]" value="12/6 社会保険実務セミナー14:00～16:30"/>
+                                        &nbsp;<span>12/6 社会保険実務セミナー14:00～16:30</span>
+                                        <!-- 参加方法選択 -->
+                                        <div class="checked">
+                                            <p>
+                                                <label>
+                                                    参加方法<span class="required">*必須</span>
+                                                    &nbsp;<input type="radio" name="level_6" value="venue"/>会場
+                          
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="level_6" value="zoom"/>ZOOM
+                          
+                                                </label>
+                                            </p>
+                                            <!-- テキスト部数入力 -->
+                                            <label>
+                                                テキスト部数 <span class="required">*必須&nbsp;</span>
+                                                <input type="text" name="books" value="" size="2" class="text_width" aria-required="true" aria-invalid="false"/>冊
+                                            </label>
+                                        </div>
+                                    </span>
+</p></div></div>
+<div class="formCol_02">
+    <div id="target">
+        <div class="entrant">
+            <div class="primary_only">
+                <div class="container">
                     <p class="item">
-                      法人名 <span class="required">*必須</span>
+                        法人名 <span class="required">*必須</span>
                     </p>
                     <p class="input">
-                      <span class="corporation"
-                        ><input
-                          type="text"
-                          name="corporation"
-                          value=""
-                          size="47"
-                          class="form-width"
-                          aria-required="true"
-                          aria-invalid="false"
-                      /></span>
+                        <span class="corporation">
+                            <input type="text" name="corporation" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/>
+                        </span>
                     </p>
-                      </div>
-                      <div class="container">
+                </div>
+                <div class="container">
                     <p class="item">
-                      電話番号 <span class="required">*必須</span>
+                        電話番号 <span class="required">*必須</span>
                     </p>
                     <p class="input">
-                      <span class="tel"
-                        ><input
-                          type="tel"
-                          name="tel"
-                          value=""
-                          size="47"
-                          class="form-width"
-                          aria-required="true"
-                          aria-invalid="false"
-                      /></span>
+                        <span class="tel">
+                            <input type="tel" name="tel" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/>
+                        </span>
                     </p>
-                      </div>
-                      <div class="container member">
+                </div>
+                <div class="container member">
                     <p class="item">
-                      <label>
-                        <input type="radio" name="level" value="member" />
-                        会員
-                      </label>
-                      <label>
-                        <input type="radio" name="level" value="ordinary" />
-                        一般
-                      </label>
-
-                      <span class="required"
-                        >&nbsp;*必須(どちらか選択してください)</span
-                      >
+                        <label>
+                            <input type="radio" name="level" value="member"/>会員
+                      
+                        </label>
+                        <label>
+                            <input type="radio" name="level" value="ordinary"/>一般
+                      
+                        </label>
+                        <span class="required">&nbsp;*必須(どちらか選択してください)</span>
                     </p>
-                      </div>
-                    </div>
-                    <div class="container">
-                      <p class="item">
-                        参加者名<span class="representative">(代表者)</span
-                        ><span class="required">*必須</span>
-                      </p>
-                      <p class="input">
-                        <span class="participant"
-                          ><input
-                            type="text"
-                            name="participant"
-                            value=""
-                            size="47"
-                            class="form-width"
-                            aria-required="true"
-                            aria-invalid="false"
-                        /></span>
-                      </p>
-                    </div>
-                    <div class="container">
-                      <p class="item">
-                        フリガナ <span class="required">*必須</span>
-                      </p>
-                      <p class="input">
-                        <span class="participant-2"
-                          ><input
-                            type="text"
-                            name="participant-2"
-                            value=""
-                            size="47"
-                            class="form-width"
-                            aria-required="true"
-                            aria-invalid="false"
-                        /></span>
-                      </p>
-                    </div>
-                    <div class="container">
-                      <p class="item">
-                        メールアドレス <span class="required">*必須</span>
-                      </p>
-                      <p class="input">
-                        <span class="mail"
-                          ><input
-                            type="email"
-                            name="mail"
-                            value=""
-                            size="47"
-                            class="form-width"
-                            aria-required="true"
-                            aria-invalid="false"
-                        /></span>
-                      </p>
-                  </div>
                 </div>
-                <div id="new"></div>
-
-              </div>  
-                <!-- 参加人数追加ボタン 始まり-->
-                <div id="add" class="addition_button">
-                  <div class="position">
-                    <img src="img/add_square_icon.png" /><span>
-                      (参加人数を追加する)</span
-                    >
-                  </div>
-                </div>
-                <!-- 参加人数追加ボタン 終わり-->
-              </div>
-              <!-- お問い合わせフォーム -->
-              <div  class="message">
-                <p class="item">
-                  お問合せ内容 <span class="required">*必須</span>
-                </p>
-                <span><textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea></span>
-              </div>
-
-              <!-- 赤丸の送信ボタン始まり -->
-              <p style="text-align: center" class="submit">
-                <input
-                  type="image"
-                  src="http://www.koujimachi.or.jp/wp-content/themes/koujimachi_2015/img/btn_submit.png"
-                  value="submit"
-                  tabindex="1"
-                  onmouseover="this.src='http://www.koujimachi.or.jp/wp-content/themes/koujimachi_2015/img/btn_submit_over.png'"
-                  onmouseout="this.src='http://www.koujimachi.or.jp/wp-content/themes/koujimachi_2015/img/btn_submit.png'"
-                />
-              </p>
-              <!-- 赤丸の送信ボタン終わり -->
             </div>
-            <!--/block-->
-          </div>
-          <!--/pageName-->
-          <!--/////contents end/////-->
+            <div class="container">
+                <p class="item">
+                    参加者名<span class="representative">(代表者)</span>
+                    <span class="required">*必須</span>
+                </p>
+                <p class="input">
+                    <span class="participant">
+                        <input type="text" name="participant" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/>
+                    </span>
+                </p>
+            </div>
+            <div class="container">
+                <p class="item">
+                    フリガナ <span class="required">*必須</span>
+                </p>
+                <p class="input">
+                    <span class="participant-2">
+                        <input type="text" name="participant-2" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/>
+                    </span>
+                </p>
+            </div>
+            <div class="container">
+                <p class="item">
+                    メールアドレス <span class="required">*必須</span>
+                </p>
+                <p class="input">
+                    <span class="mail">
+                        <input type="email" name="mail" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/>
+                    </span>
+                </p>
+            </div>
         </div>
-        <!--/contents-->
-        <!-- お申込みフォーム記述終わり -->
-      </div>
+        <div id="new"></div>
     </div>
-    <!--/mainCol-->
-    <!-- jsファイル読み取り -->
-    <script src="js/myscript.js"></script>
-  </body>
-</html>
+    <!-- 参加人数追加ボタン 始まり-->
+    <div id="add" class="addition_button">
+        <div class="position">
+            <img src="img/add_square_icon.png"/>
+            <span>(参加人数を追加する)</span>
+        </div>
+    </div>
+    <!-- 参加人数追加ボタン 終わり-->
+</div>
+<!-- お問い合わせフォーム -->
+<div class="message">
+    <p class="item">お問合せ内容</p>
+    <span>
+        <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
+    </span>
+</div>
+<!-- 赤丸の送信ボタン始まり -->
+<p style="text-align: center" class="submit">
+    <input type="image" src="http://www.koujimachi.or.jp/wp-content/themes/koujimachi_2015/img/btn_submit.png" value="submit" tabindex="1" onmouseover="this.src='http://www.koujimachi.or.jp/wp-content/themes/koujimachi_2015/img/btn_submit_over.png'" onmouseout="this.src='http://www.koujimachi.or.jp/wp-content/themes/koujimachi_2015/img/btn_submit.png'"/>
+</p>
+<!-- 赤丸の送信ボタン終わり -->
+</div>
+<!--/block-->
+</div>
+<!--/pageName-->
+<!--/////contents end/////-->
+</div>
+<!--/contents-->
+<!-- お申込みフォーム記述終わり -->
+</div></div>
+<!--/mainCol-->
+<!-- jsファイル読み取り -->
+<script src="js/myscript.js"></script>
+</body></html>
