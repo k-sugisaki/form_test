@@ -78,10 +78,9 @@ if (
     $seminar = $_POST['seminar'];
     foreach ((array)$seminar as $index => $seminars) {
       $trimSeminar = array_map('trim', $seminars);
-      // if ($seminars['seminar_title'] === '0') {
-      //   continue;
-      // }
-
+      if ($seminars['seminar_title'] === '0') {
+        continue;
+      }
       if (isset($trimSeminar['entry_method']) && $trimSeminar['entry_method'] === '') {
         $error["seminar_method_' . $index . '"] = $error_text;
       };
