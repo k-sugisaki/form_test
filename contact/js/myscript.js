@@ -43,9 +43,26 @@ document.getElementById("add").onclick = function(){
     html += '<span class="mail"><input type="email" name="mail" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>'
     html += '</div>'
     mydiv.insertAdjacentHTML('beforeend',html);
-    /* 参加者削除ボタン */
-  var getEntrant = document.getElementsByClassName("entrant");
-    document.getElementsByClassName("off").onclick = function(){
-      getEntrant.remove();
-    }
+  //   /* 参加者削除ボタン */
+  // // var getEntrant = document.getElementsByClassName("entrant");
+  //   document.getElementsByClassName("off").onclick = function(){
+  //     let parent = this.parentNode;
+  //     console.log(parent);
+  //     let test = this.closset('.entrant');
+  //     console.log(test);
+      
+  //     // getEntrant.remove();
+  //   }
   }
+
+    /* 参加者削除ボタン */
+  // var getEntrant = document.getElementsByClassName("entrant");
+    document.getElementsByClassName("off").onclick = function(){
+      let parent = this.parentNode;
+      console.log(parent);
+      let test = this.closset('.entrant');
+      console.log(test);
+      
+      // getEntrant.remove();
+    }
+    
