@@ -120,25 +120,25 @@
                 <label for="participant_name_<?=$id?>">参加者名:</label>
                 <span class="error-php"><?php if (isset($error['name_'.$id])) echo $error['name_'.$id]; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) { ?> value="<?php echo $val ?>" <?php } ?>class="required" /></dd>
+              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
             </dl>
             <dl>
               <dt class="name_kana">
                 <label for="participant_name_kana_<?=$id?>">フリガナ:</label>
                 <span class="error-php"><?php if (isset($error['name_kana_'.$id])) echo $error['name_kana_.$id']; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) { ?> value="<?php echo $POST_participant_name_kana[$id] ?>" <?php } ?> class="required" /></dd>
+              <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) : ?> value="<?= $POST_participant_name_kana[$id] ?>" <?php endif; ?> class="required" /></dd>
             </dl>
             <dl>
               <dt class="mail">
                 <label for="mail_<?=$id?>">メールアドレス:</label>
                 <span class="error-php"><?php if (isset($error['mail_'.$id])) echo $error['mail_'.$id]; ?></span>
               </dt>
-              <dd><input type="email" id="mail_<?=$id?>" name="mail[]" required <?php if (isset($POST_mail[$id])) { ?> value="<?php echo $POST_mail[$id] ?>" <?php } ?>class="required" /></dd>
+              <dd><input type="email" id="mail_<?=$id?>" name="mail[]" required <?php if (isset($POST_mail[$id])) { ?> value="<?=$POST_mail[$id] ?>" <?php } ?>class="required" /></dd>
             </dl>
           </div>
         <?php endforeach; ?>
-        <input type="hidden" name="participant_count" <?php if (isset($id)) { ?> value="<?php echo $id ?>" <?php } ?>>
+        <input type="hidden" name="participant_count" <?php if (isset($id)) : ?> value="<?= $id ?>" <?php endif; ?>>
       <?php endif; ?>
       <button name="submitted" type="submit" class="btn btn-primary">送信</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
