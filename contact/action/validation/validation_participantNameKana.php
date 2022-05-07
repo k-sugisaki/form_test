@@ -5,7 +5,7 @@ class ParticipantNameKanaClass
   {
     $params = [];
     $params = filter_input(INPUT_POST, 'participant_name_kana',  FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
-    $params = array_map('trim', $params);
+    if (!empty($params)) $params = array_map('trim', $params);
     return $params;
   }
 
