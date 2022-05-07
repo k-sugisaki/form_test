@@ -74,6 +74,7 @@
         <label><input type="radio" name="category" value="not-member" <?php if(isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?>/>一般</label>
         </dd>
       </dl>
+      <?php if (isset($view_flag) === 1) : ?>
       <div class="participant_info">
         <dl>
           <dt class="name">
@@ -97,30 +98,35 @@
           <dd><input type="email" id="mail_1" name="mail[]" required class="required" /></dd>
         </dl>
       </div>
+      <input type="hidden" name="participant_count" value="1">
+      <?php else: ?>
+      <?php foreach ($POST_participant_name as $id => $val) : ?>
       <div class="participant_info">
         <dl>
           <dt class="name">
             <label for="participant_name_2">参加者名:</label>
             <span class="error-php"><?php if (isset($error['name_2'])) echo $error['name_2']; ?></span>
           </dt>
-          <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+          <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if(isset($val)){ ?> value="<?php echo $val?>"  <?php } ?>class="required" /></dd>
         </dl>
         <dl>
           <dt class="name_kana">
             <label for="participant_name_kana_2">フリガナ:</label>
             <span class="error-php"><?php if (isset($error['name_kana_2'])) echo $error['name_kana_2']; ?></span>
           </dt>
-          <dd><input type="text" name="participant_name_kana[]" class="required" /></dd>
+          <dd><input type="text" name="participant_name_kana[]"<?php if(isset($POST_participant_name_kana[$id])){ ?> value="<?php echo $POST_participant_name_kana[$id]?>"  <?php } ?> class="required" /></dd>
         </dl>
         <dl>
           <dt class="mail">
             <label for="mail_2">メールアドレス:</label>
             <span class="error-php"><?php if (isset($error['mail_2'])) echo $error['mail_2']; ?></span>
           </dt>
-          <dd><input type="email" id="mail_2" name="mail[]" required class="required" /></dd>
+          <dd><input type="email" id="mail_2" name="mail[]" required <?php if(isset($POST_mail[$id])){ ?> value="<?php echo $POST_mail[$id]?>"  <?php } ?>class="required" /></dd>
         </dl>
       </div>
-      <input type="hidden" name="participant_count" value="2">
+      <?php endforeach;?>
+      <input type="hidden" name="participant_count" <?php if(isset($id)){ ?> value="<?php echo $id?>"  <?php } ?>>
+      <?php endif;?>
       <button name="submitted" type="submit" class="btn btn-primary">送信</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
     </form>

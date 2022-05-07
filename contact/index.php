@@ -27,6 +27,7 @@ include_once './action/views/index_view.php';
 //最初は入力データがないのでこの初期化をしないとエラーとなる
 $POST_corp_name = isset($_POST['corp_name']) ? $POST_corp_name : NULL;
 $POST_tel = isset($_POST['tel']) ? $POST_tel : NULL;
+$view_flag = 1;
 
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
@@ -38,6 +39,7 @@ if (
   if (isset($_POST['submitted'])) {
     $_POST = checkInput($_POST);
     $error = array();
+    $view_flag = 2;
 
     if (!isset($POST_corp_name) || $POST_corp_name == '') {
       $error['corp_name'] = $error_text;
