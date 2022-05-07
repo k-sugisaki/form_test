@@ -74,7 +74,7 @@
         <label><input type="radio" name="category" value="not-member" <?php if(isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?>/>一般</label>
         </dd>
       </dl>
-      <?php if (isset($view_flag) === 1) : ?>
+      <?php if ($view_flag === 1) : ?>
       <div class="participant_info">
         <dl>
           <dt class="name">
