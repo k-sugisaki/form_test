@@ -54,7 +54,6 @@ document.getElementById("add").onclick = function(){
   //     // getEntrant.remove();
   //   }
   }
-
     /* 参加者削除ボタン */
   // var getEntrant = document.getElementsByClassName("entrant");
     document.getElementsByClassName("off").onclick = function(){
@@ -65,4 +64,3 @@ document.getElementById("add").onclick = function(){
       
       // getEntrant.remove();
     }
-    
