@@ -8,7 +8,7 @@
 .application{
     max-width: 1000px;
     margin:0 auto;
-}
+padding: 0 10px;}
 /* 『お申込み』フォーム画像 */
 .application h2{
     background-image: url(../img/application_pagettl.png);
@@ -23,13 +23,13 @@ h2 {
 /* セミナータイトルを縦並びにする */
 .list-item {
     display:block;
+    width: 590px;
     padding: 0 2% 0 1%;
 }
 /* セミナータイトル枠　背景色を#E5EDF2(薄いブルー)にする */
 .formCol_01 {
     background-color: #E5EDF2;
     padding: 1% 0 1% 1%;
-    /* margin-bottom:10px; */
 }
 /* セミナー選ぶと参加方法とテキスト部数欄が表示される */
 /* チェック非表示OFF */
@@ -47,6 +47,7 @@ input:checked ~ .checked{
     background: #E5EDF2;
     padding: 1.5% 0 1% 1%;
     margin-top:10px;
+    position: relative;
 }
 /* 入力項目inputクラス幅調整 */
 .input{
@@ -55,7 +56,6 @@ input:checked ~ .checked{
 /* セミナータイトルの装飾 */
 span.list-item {
     background: #fff;
-    width: 55%;
     margin: 1% 0;
 }
 /* 『タイトル名（複数選択可）』を太文字にする */
@@ -73,15 +73,15 @@ span.list-item {
 
 
 /* 『参加人数を追加する』ボタンの文字 */
-.button span {
+.addition_button span {
     font-weight: bold;
     letter-spacing: 0.05em;
     vertical-align: middle;
 }
-.button img{
+.addition_button img{
     vertical-align: middle;
 }
-.button {
+.addition_button {
     position:relative;
     cursor:pointer;
 }
@@ -94,12 +94,25 @@ span.list-item {
 .hide {
     display:none;
 }
+/* 参加者削除ボタン */
+.off{
+    position:absolute;
+    cursor:pointer;
+    top:10px;
+    right:3px;
+}
+.off img{
+    width:70%;
+}
 
 /* 『お問合せフォーム』 */
 .message{
     background-color:#E5EDF2;
     margin-top:10px;
     padding:1%;
+}
+textarea{
+    width:100%;
 }
 /* お申し込みフォーム全体 */
 .block {
@@ -140,5 +153,26 @@ span.list-item {
         margin-left:43%;
         margin-top:10px;
         margin-bottom:10px;
+}
+.form-width{
+    width:100%;
+}
+.entrant{
+    padding: 1.5% 1.5% 1% 1%;
+}
+.message{
+    padding-right:1.5%;
+}
+.addition_button{
+    background-color: #E5EDF2;
+}
+.position{
+    margin:0;
+    padding-left:50%;
+    padding-bottom:2%;
+}
+.off{
+    top:2px;
+    right:-1px;
 }
 }
