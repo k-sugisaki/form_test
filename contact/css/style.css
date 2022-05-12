@@ -14,7 +14,9 @@
 .form-title {
   max-width: 1000px;
   margin: 0 auto 2%;
+  padding: 0 10px;
   background-image: url(../img/application_pagettl.png);
+  background-repeat: no-repeat;
 }
 /* 『お申込みフォーム』文字 */
 h2 {
@@ -24,35 +26,18 @@ h2 {
 }
 
 /* セミナータイトル枠　背景色を#E5EDF2(薄いブルー)にする */
-.formCol_01 {
-  background-color: #e5edf2;
-  padding: 1% 0 1% 1%;
-}
-
 .seminar__list {
   background-color: #e5edf2;
-  padding: 1% 0 1% 1%;
+  padding: 1%;
 }
 
 /* セミナータイトルを縦並びにする */
-.list-item {
-  display: block;
-  width: 590px;
-  padding: 0 2% 0 1%;
-}
-
 .seminar__item {
   display: block;
   width: 590px;
-  /* padding: 0 2% 0 1%; */
+  padding: 0 1%;
   margin: 1% 0;
   background: #fff;
-}
-
-/* セミナータイトルの装飾 */
-span.list-item {
-  background: #fff;
-  margin: 1% 0;
 }
 
 /* セミナー選ぶと参加方法とテキスト部数欄が表示される */
@@ -81,16 +66,18 @@ input:checked ~ .checked {
 /* 『タイトル名（複数選択可）』を太文字にする */
 .item__title,
 dl > label,
-dt > label {
+dt > label,
+.label {
   font-weight: bold;
 }
 
 dl {
-    padding-bottom: 2%;
+  padding-bottom: 2%;
 }
 /* 『＊必須』文字赤く装飾 */
 .required-text {
   color: #f00;
+  font-weight: bold;
 }
 /* 会員or一般下部に余白を設ける */
 .member {
@@ -99,10 +86,11 @@ dl {
 .info__common {
   background-color: #e5edf2;
   margin-top: 10px;
-  padding-top: 1.5%;
+  padding: 1.5% 1% 0;
 }
-.participant_info{
-    background-color: #e5edf2;
+.participant_info {
+  background-color: #e5edf2;
+  padding: 0 1%;
 }
 
 /* 『参加人数を追加する』ボタンの文字 */
@@ -139,7 +127,7 @@ dl {
 }
 
 /* 『お問合せフォーム』 */
-.message {
+.contact_detail {
   background-color: #e5edf2;
   margin-top: 10px;
   padding: 1%;
@@ -159,8 +147,22 @@ textarea {
 }
 
 /* 送信ボタン */
-.submit {
-  margin-top: 20px;
+.btn-primary {
+  margin: 20px auto 0;
+  display: block;
+  width: 120px;
+  height: 120px;
+  background-color: #E20001;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #E34546;
 }
 
 /* 以下よりレスポンシブ対応 */
