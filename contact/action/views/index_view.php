@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
   <link rel="stylesheet" href="./css/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -39,25 +39,25 @@
               <?php endif; ?>
             </div>
             <?php if ($seminar["holding_by_zoom"]) : ?>
-              <div>
+              <div class="seminar-item__entry-metod">
                 <span>参加方法</span>
                 <?php if ($view_flag === 1) : ?>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" />ZOOM</label>
+                  <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
+                  <label class="radio-behind"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" />ZOOM</label>
                 <?php else : ?>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "venue")) : ?> checked <?php endif; ?> />会場</label>
-                  <label><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "zoom")) : ?> checked <?php endif; ?> />ZOOM</label>
+                  <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "venue")) : ?> checked <?php endif; ?> />会場</label>
+                  <label class="radio-behind"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "zoom")) : ?> checked <?php endif; ?> />ZOOM</label>
                 <?php endif; ?>
               </div>
             <?php else : ?>
               <input type="hidden" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />
             <?php endif; ?>
-            <div>
+            <div class="seminar-item__seminar-text">
               <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" />冊
+                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text"/>冊
               <?php else : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" />冊
+                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" class="input__seminar-text"/>冊
               <?php endif; ?>
             </div>
           </div>
@@ -84,8 +84,8 @@
           <dt class="category">
             <span class="error-php"><?php if (isset($error['category'])) echo $error['category']; ?></span>
           </dt>
-          <label><input type="radio" name="category" value="member" <?php if (isset($_POST['category']) && $_POST['category'] === 'member') echo 'checked' ?> />会員</label>
-          <label><input type="radio" name="category" value="not-member" <?php if (isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?> />一般</label>
+          <label class="radio-previous"><input type="radio" name="category" value="member" <?php if (isset($_POST['category']) && $_POST['category'] === 'member') echo 'checked' ?> />会員</label>
+          <label class="radio-behind"><input type="radio" name="category" value="not-member" <?php if (isset($_POST['category']) && $_POST['category'] === 'not-member') echo 'checked' ?> />一般</label>
           <span class="required-text">*必須(どちらか選択してください)</span>
           </dd>
         </dl>

@@ -1,15 +1,32 @@
-/* css */
+/* 共通項目 */
 * {
   margin: 0;
   padding: 0;
   color: #333;
 }
-/* 横幅最大1000px */
+
+input[type="radio"]{
+  margin-right: 0.3em;
+}
+
+.radio-previous {
+  margin-right: 0.5em;
+}
+
+/* フォーム全体 */
 .validationForm {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
 }
+
+@media(max-width: 640px) {
+  .validationForm {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
 /* 『お申込み』フォーム画像 */
 .form-title {
   max-width: 1000px;
@@ -35,13 +52,23 @@ h2 {
 .seminar__item {
   display: block;
   width: 590px;
-  padding: 0 1%;
+  padding: 0.5% 1%;
   margin: 1% 0;
   background: #fff;
 }
 
+@media(max-width: 640px) {
+  .seminar__item {
+    width: 95%;
+    margin: 1% auto;
+  }
+}
+
 /* セミナー選ぶと参加方法とテキスト部数欄が表示される */
 /* チェック非表示OFF */
+input[type="checkbox"]{
+  margin-right: 0.6em;
+}
 .checked {
   display: none;
   background-color: #fff;
@@ -51,16 +78,22 @@ h2 {
 input:checked ~ .checked {
   display: block;
 }
-/* 代表者のみの入力項目 */
-.entrant {
-  background: #e5edf2;
-  padding: 1.5% 0 1% 1%;
-  margin-top: 10px;
-  position: relative;
+
+.seminar-item__entry-metod {
+  margin-left: 21px;
 }
-/* 入力項目inputクラス幅調整 */
-.input {
-  padding-bottom: 2%;
+
+.seminar-item__entry-metod .radio-previous {
+  margin-left: 1em;
+}
+
+.seminar-item__seminar-text {
+  margin-left: 21px;
+}
+
+.input__seminar-text {
+  margin-left: 1em;
+  margin-right: 0.3em;
 }
 
 /* 『タイトル名（複数選択可）』を太文字にする */
@@ -71,29 +104,29 @@ dt > label,
   font-weight: bold;
 }
 
-dl {
-  padding-bottom: 2%;
-}
-/* 『＊必須』文字赤く装飾 */
+/* 『＊必須』文字 */
 .required-text {
   color: #f00;
   font-weight: bold;
 }
-/* 会員or一般下部に余白を設ける */
-.member {
-  margin-bottom: 8px;
+
+/* 余白調整 */
+dl {
+  padding-bottom: 2%;
 }
+
 .info__common {
   background-color: #e5edf2;
   margin-top: 10px;
   padding: 1.5% 1% 0;
 }
+
 .participant_info {
   background-color: #e5edf2;
   padding: 0 1%;
 }
 
-/* 『参加人数を追加する』ボタンの文字 */
+/* 『参加人数を追加する』ボタン */
 .addition_button span {
   font-weight: bold;
   letter-spacing: 0.05em;
@@ -111,10 +144,7 @@ dl {
   bottom: 20px;
   left: 390px;
 }
-/* 参加者二人目以降、表には表示されないがデータ出力に必要事項(法人名・電話番号・会員/一般) */
-.hide {
-  display: none;
-}
+
 /* 参加者削除ボタン */
 .off {
   position: absolute;
@@ -132,9 +162,11 @@ dl {
   margin-top: 10px;
   padding: 1%;
 }
+
 textarea {
   width: 100%;
 }
+
 /* お申し込みフォーム全体 */
 .block {
   background: #fff;
@@ -165,11 +197,11 @@ textarea {
   background-color: #E34546;
 }
 
+
+
+
 /* 以下よりレスポンシブ対応 */
 @media (max-width: 640px) {
-  span.list-item {
-    width: 95%;
-  }
   h2 {
     width: 100%;
     height: 100%;
@@ -188,9 +220,6 @@ textarea {
     margin-left: 43%;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
-  .form-width {
-    width: 100%;
   }
   .entrant {
     padding: 1.5% 1.5% 1% 1%;
