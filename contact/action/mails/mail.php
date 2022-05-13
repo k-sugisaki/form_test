@@ -1,4 +1,5 @@
 <?php
+
 namespace  Mail;
 
 /**
@@ -8,13 +9,13 @@ class MailModel
 {
     // ファイル出力場所指定
     private $template = "csv_send.ini";
-    private $commonPath = __DIR__."../../../config/MailTmp/";
+    private $commonPath = __DIR__ . "../../../config/MailTmp/";
     private $setPath;
 
-    public function __construct($template=null)
-	{
+    public function __construct($template = null)
+    {
         if (!$template) $template = $this->template;
-        $this->setPath = $this->commonPath.$this->template;
+        $this->setPath = $this->commonPath . $this->template;
     }
 
     /**
@@ -24,7 +25,8 @@ class MailModel
      * @param array $files
      * @return void
      */
-    public function sendMadil($replace = null, $files = [])  {
+    public function sendMadil($replace = null, $inquire = null, $files = [])
+    {
         $setIni = parse_ini_file($this->setPath);
         $from = $setIni['from'];
         $to = $setIni['to'];
@@ -32,7 +34,16 @@ class MailModel
         $message = $setIni['body'];
         $headers = "From:  $from";
 
-        if ($replace) $message = str_replace('{value}', $replace, $message);
+        if ($replace) {
+            $message = str_replace('{value}', $replace, $message);
+        } else {
+            $message = str_replace('{value}', '', $message);
+        }
+        if ($inquire) {
+            $message .= $setIni['body2'];
+            $message = str_replace('{inquire}', $inquire, $message);
+        }
+
         mb_language("ja");
         mb_internal_encoding('utf-8');
         $message = mb_convert_encoding($message, 'ISO-2022-JP', 'auto');
@@ -43,8 +54,8 @@ class MailModel
 
         if ($files) {
             foreach ($files as $file) {
-                	// ファイル添付1
-                if( !empty($file) ) {
+                // ファイル添付1
+                if (!empty($file)) {
                     $body .= "Content-Type: application/octet-stream; name=\"{$file['fileName']}\"\n";
                     $body .= "Content-Disposition: attachment; filename=\"{$file['fileName']}\"\n";
                     $body .= "Content-Transfer-Encoding: base64\n";

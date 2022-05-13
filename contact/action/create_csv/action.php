@@ -41,6 +41,9 @@ class CsvOutputControllor
     $name_kana = $_SESSION['participant_name_kana'];
     $mail = $_SESSION['mail'];
     $seminar = $_SESSION['seminar_list'];
+    $inq = $_SESSION['inquire'];
+
+    $rep = null;
 
     //一時データを開く
     $fp = fopen('php://temp', 'r+b');
@@ -86,8 +89,25 @@ class CsvOutputControllor
     $fp2 = fopen($this->save_file,  "w");
     fwrite($fp2, $str);
     fclose($fp2);
+
+    $files = [];
+    $replace = null;
+    $inquire = null;
+    if (file_exists($this->save_file)) {
+      $files[] = $this->save_file;
+    }
+
+    if (isset($inq) && $inq !== '') {
+      $inqire = $inq;
+    }
+
+    if (isset($rep) && $rep !== '') {
+      $replace = $rep;
+    }
+
+
     $mail = new MailModel();
-    $mail->sendMadil();
+    $mail->sendMadil($replace, $inquire, $files);
   }
 }
 
