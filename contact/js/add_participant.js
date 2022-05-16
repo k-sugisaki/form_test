@@ -1,62 +1,48 @@
 /*js*/
 // ボタンを押したら参加人数を追加できる
 
-var mydiv = document.getElementById("new");
+const addArea = document.getElementById("add_participantArea");
+let id = 2;
+const counter = document.getElementById("participant_count");
+counter.value = 0;
+
 document.getElementById("add").onclick = function () {
+  console.log(counter.value);
   let html = "";
-  html += '<div class="entrant">';
+  html += '<div class="participant_info">';
   html += '<div class="off"><img src="img/cross.png" /></div>';
-  html += '<div class="primary_only hide">';
-  html += '<div class="container">';
-  html += '<p class="item">';
-  html += '法人名 <span class="required">*必須</span></p>';
-  html += '<p class="input">';
-  html += '<span class="corporation">';
-  html +=
-    '<input type="text" name="corporation" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>';
-  html += "</div>";
-  html += '<div class="container">';
-  html += '<p class="item">';
-  html += '電話番号 <span class="required">*必須</span></p>';
-  html += '<p class="input">';
-  html +=
-    '<span class="tel"><input type="tel" name="tel" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>';
-  html += "</div>";
-  html += '<div class="container member">';
-  html += '<p class="item">';
-  html +=
-    '<label><input type="radio" name="level" value="member" />会員</label>';
-  html +=
-    '<label><input type="radio" name="level" value="ordinary" />一般</label>';
-  html += '<span class="required">&nbsp;*必須(どちらか選択してください)</span>';
-  html += "</p></div></div>";
-  html += '<div class="container">';
-  html += '<p class="item">';
-  html += '参加者名<span class="required">*必須</span></p>';
-  html += '<p class="input">';
-  html +=
-    '<span class="participant"><input type="text" name="participant" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>';
-  html += "</div>";
-  html += '<div class="container">';
-  html += '<p class="item">フリガナ <span class="required">*必須</span></p>';
-  html += '<p class="input">';
-  html +=
-    '<span class="participant-2"><input type="text" name="participant-2" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>';
-  html += "</div>";
-  html += '<div class="container">';
-  html +=
-    '<p class="item">メールアドレス <span class="required">*必須</span></p>';
-  html += '<p class="input">';
-  html +=
-    '<span class="mail"><input type="email" name="mail" value="" size="47" class="form-width" aria-required="true" aria-invalid="false"/></span></p>';
-  html += "</div>";
-  mydiv.insertAdjacentHTML("beforeend", html);
+  html += '<dl>';
+  html += '<dt class="name">';
+  html += `<label for="participant_name_${id}">参加者名:<span class="required-text">*必須</span></label>`;
+  html += `<span class="error-php"><?php if (isset($error["name_${id}"])) echo $error["name_${id}"]; ?></span>`;
+  html += '</dt>';
+  html += '<dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) ?>value="<?= $val ?>"<?php endif; ?> class="required" /></dd>';
+  html += '</dl>';
+  html += '<dl>';
+  html += '<dt class="name_kana">';
+  html += `<label for="participant_name_kana_${id}">フリガナ:<span class="required-text">*必須</span></label>`;
+  html += `<span class="error-php"><?php if (isset($error["name_kana_${id}"])) echo $error["name_kana_${id}"]; ?></span>`;
+  html += '</dt>';
+  html += `<dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[${id}])) : ?> value="<?= $POST_participant_name_kana[${id}] ?>" <?php endif; ?> class="required" /></dd>`;
+  html += '</dl>';
+  html += '<dl>';
+  html += '<dt class="mail">';
+  html += `<label for="mail_${id}">メールアドレス:<span class="required-text">*必須</span></label>`;
+  html += `<span class="error-php"><?php if (isset($error["mail_${id}"])) echo $error["mail_${id}"]; ?></span>`;
+  html += '</dt>';
+  html += `<dd><input type="email" id="mail_${id}" name="mail[]" required <?php if (isset($POST_mail[${id}])) { ?> value="<?= $POST_mail[${id}] ?>" <?php } ?>class="required" /></dd>`;
+  html += '</dl>';
+  html += '</div>';
+  addArea.insertAdjacentHTML("beforeend", html);
+  id++;
+  counter.value++;
 };
 
 /* 参加者削除ボタン */
 /* jQuery */
 $(document).on("click", '.off', function (e) {
-  var test = $(e.target).closest(".entrant");
+  const test = $(e.target).closest(".participant_info");
   console.log(test);
   test.remove();
+  counter.value--;
 });

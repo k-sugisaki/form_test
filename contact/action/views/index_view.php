@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
   <link rel="stylesheet" href="./css/style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -55,9 +54,9 @@
             <div class="seminar-item__seminar-text">
               <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text"/>冊
+                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" />冊
               <?php else : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" class="input__seminar-text"/>冊
+                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" class="input__seminar-text" />冊
               <?php endif; ?>
             </div>
           </div>
@@ -114,7 +113,7 @@
             <dd><input type="email" id="mail_1" name="mail[]" required class="required" /></dd>
           </dl>
         </div>
-        <input type="hidden" name="participant_count" value="0">
+        <input type="hidden" name="participant_count" value="0" id="participant_count">
       <?php else : ?>
         <?php foreach ($POST_participant_name as $id => $val) : ?>
           <div class="participant_info">
@@ -141,8 +140,9 @@
             </dl>
           </div>
         <?php endforeach; ?>
-        <input type="hidden" name="participant_count" <?php if (isset($id)) : ?> value="<?= $id ?>" <?php endif; ?>>
+        <input type="hidden" name="participant_count" <?php if (isset($id)) : ?> value="<?= $id ?>" <?php endif; ?> id="participant_count">
       <?php endif; ?>
+      <div id="add_participantArea"></div>
       <!-- 参加人数追加ボタン 始まり-->
       <div id="add" class="addition_button">
         <div class="position">
@@ -152,13 +152,15 @@
       </div>
       <!-- 参加人数追加ボタン 終わり-->
       <div class="contact_detail">
-      <label for="message" class="label">お問合せ内容</label>
-      <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
+        <label for="message" class="label">お問合せ内容</label>
+        <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
       </div>
       <button name="submitted" type="submit" class="btn btn-primary">送信する</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
     </form>
   </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/add_participant.js"></script>
 </body>
 
 </html>

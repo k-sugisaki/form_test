@@ -5,7 +5,7 @@
   color: #333;
 }
 
-input[type="radio"]{
+input[type="radio"] {
   margin-right: 0.3em;
 }
 
@@ -20,7 +20,7 @@ input[type="radio"]{
   padding: 0 10px;
 }
 
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .validationForm {
     max-width: 100%;
     width: 100%;
@@ -57,7 +57,7 @@ h2 {
   background: #fff;
 }
 
-@media(max-width: 640px) {
+@media (max-width: 640px) {
   .seminar__item {
     width: 95%;
     margin: 1% auto;
@@ -66,7 +66,7 @@ h2 {
 
 /* セミナー選ぶと参加方法とテキスト部数欄が表示される */
 /* チェック非表示OFF */
-input[type="checkbox"]{
+input[type="checkbox"] {
   margin-right: 0.6em;
 }
 .checked {
@@ -118,12 +118,18 @@ dl {
 .info__common {
   background-color: #e5edf2;
   margin-top: 10px;
-  padding: 1.5% 1% 0;
+  padding: 1.5% 1%;
 }
 
 .participant_info {
+  position: relative;
   background-color: #e5edf2;
-  padding: 0 1%;
+  margin-bottom: 1%;
+  padding: 0% 1%;
+}
+
+#add_participantArea > .participant_info{  
+  padding: 1.5% 1%;
 }
 
 /* 『参加人数を追加する』ボタン */
@@ -184,7 +190,7 @@ textarea {
   display: block;
   width: 120px;
   height: 120px;
-  background-color: #E20001;
+  background-color: #e20001;
   border: none;
   border-radius: 50%;
   color: #fff;
@@ -194,11 +200,8 @@ textarea {
 }
 
 .btn-primary:hover {
-  background-color: #E34546;
+  background-color: #e34546;
 }
-
-
-
 
 /* 以下よりレスポンシブ対応 */
 @media (max-width: 640px) {
