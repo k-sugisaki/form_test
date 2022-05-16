@@ -138,6 +138,7 @@
             </dl>
           </div>
         <?php endforeach; ?>
+        <!-- 初期値0 -->
         <input type="hidden" name="participant_count" <?php if (isset($id)) : ?> value="<?= $id ?>" <?php endif; ?>>
       <?php endif; ?>
       <button name="submitted" type="submit" class="btn btn-primary">送信</button>
