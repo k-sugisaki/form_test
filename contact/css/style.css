@@ -151,6 +151,16 @@ dl {
   left: 390px;
 }
 
+@media (max-width: 640px) {
+  .position {
+    margin: auto;
+    margin-top: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 /* 参加者削除ボタン */
 .off {
   position: absolute;
@@ -232,11 +242,6 @@ textarea {
   }
   .addition_button {
     background-color: #e5edf2;
-  }
-  .position {
-    margin: 0;
-    padding-left: 50%;
-    padding-bottom: 2%;
   }
   .off {
     top: 2px;
