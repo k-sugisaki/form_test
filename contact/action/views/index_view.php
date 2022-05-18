@@ -37,8 +37,8 @@
                 <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><?= $seminar["title"] ?></label>
               <?php endif; ?>
             </div>
-            <?php if ($seminar["holding_by_zoom"]) : ?>
-              <div class="seminar-item__entry-metod">
+            <div class="seminar-item__entry-metod">
+              <?php if ($seminar["holding_by_zoom"]) : ?>
                 <span>参加方法</span>
                 <?php if ($view_flag === 1) : ?>
                   <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />会場</label>
@@ -47,10 +47,11 @@
                   <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "venue")) : ?> checked <?php endif; ?> />会場</label>
                   <label class="radio-behind"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" <?php if (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][1]) && $POST_seminars[$index][1] == "zoom")) : ?> checked <?php endif; ?> />ZOOM</label>
                 <?php endif; ?>
-              </div>
-            <?php else : ?>
-              <input type="hidden" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />
-            <?php endif; ?>
+              <?php else : ?>
+                <input type="hidden" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" />
+              <?php endif; ?>
+              <span class="error-php"><?php if (isset($error['seminar_method_'.$index])) echo $error['seminar_method_'.$index]; ?></span>
+            </div>
             <div class="seminar-item__seminar-text">
               <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
@@ -58,6 +59,7 @@
               <?php else : ?>
                 <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" class="input__seminar-text" />冊
               <?php endif; ?>
+              <span class="error-php"><?php if (isset($error['seminar_text_'.$index])) echo $error['seminar_text_'.$index]; ?></span>
             </div>
           </div>
         <?php endforeach; ?>

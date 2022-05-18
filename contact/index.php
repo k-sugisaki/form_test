@@ -27,6 +27,7 @@ $arr = json_decode($json, true);
 $POST_corp_name = isset($_POST['corp_name']) ? $POST_corp_name : NULL;
 $POST_tel = isset($_POST['tel']) ? $POST_tel : NULL;
 $view_flag = 1;
+$complete_flg = 0;
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
 if (
@@ -84,7 +85,10 @@ if (
         continue;
       }
       if (!$complete_seminars) $complete_seminars = $seminars['seminar_title'];
-      if (isset($trimSeminar['entry_method']) && $trimSeminar['entry_method'] === '') {
+      if (
+        (isset($trimSeminar['entry_method']) && $trimSeminar['entry_method'] === '')
+        or !isset($trimSeminar['entry_method'])
+      ) {
         $error["seminar_method_$index"] = $error_text;
       };
 
@@ -93,6 +97,11 @@ if (
       };
 
       $POST_seminars[] = array_values($trimSeminar);
+      if (empty($error)) {
+        $complete_flg = 1;
+      } else {
+        $complete_flg = 0;
+      }
     }
 
     //それぞれの値をセッションに保存
@@ -106,14 +115,14 @@ if (
     $_SESSION['seminar'] = $complete_seminars;
 
     //エラーがなく且つPOSTでのリクエストの場合
-    if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg) {
       $_SESSION['finish'] = true;
       // require_once './contact/action/create_csv/action.php';
       header('Location: ./complete.php');
       exit;
     }
-    include_once './action/views/index_view.php';
   }
+  include_once './action/views/index_view.php';
 } else {
   include_once './action/views/index_view.php';
 }
