@@ -10,3 +10,6 @@ require_once VALIDATION_DIR . './validation_participantName.php';
 require_once VALIDATION_DIR . './validation_participantNameKana.php';
 require_once VALIDATION_DIR . './validation_mail.php';
 require_once VALIDATION_DIR . './validation_category.php';
+
+//Ç®ñ‚çáÇπ
+require_once VALIDATION_DIR . './validation_inquire.php';
