@@ -10,7 +10,7 @@ document.getElementById("add").onclick = function () {
   console.log(counter.value);
   let html = "";
   html += '<div class="participant_info">';
-  html += '<div class="off"><img src="img/cross.png" /></div>';
+  html += '<div class="off"><img src="http://www.koujimachi.or.jp/test/wp-content/themes/koujimachi_2015/contact/img/cross.png" /></div>';
   html += '<dl>';
   html += '<dt class="name">';
   html += `<label for="participant_name_${id}">参加者名:<span class="required-text">*必須</span></label>`;

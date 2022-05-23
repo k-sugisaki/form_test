@@ -3,7 +3,6 @@
 Template Name: 固定ページ／麹町法人会について
 */
 ?>
-<?php echo "テスト　フォーム画面です。" ?>
 <?php
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
@@ -18,14 +17,16 @@ if (!isset($_SESSION['csrf_token'])) {
 } else {
   $csrf_token = $_SESSION['csrf_token'];
 }
-
+?>
+<?php get_header(); ?>
+<?php
 // 関数ファイル読み込み
-require_once './config/index.php';
-require_once ACTION_DIR . '/validation/index.php';
-require_once './action/mails/mail.php';
+require_once get_template_directory() . '/contact/config/index.php';
+require_once get_template_directory() . ACTION_DIR . '/validation/index.php';
+require_once get_template_directory() . '/contact/action/mails/mail.php';
 
 // json読み込み
-$url = "./data/seminarList.json";
+$url = get_template_directory() . '/contact/data/seminarList.json';
 $json = file_get_contents($url);
 $arr = json_decode($json, true);
 
@@ -129,12 +130,14 @@ if (
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg) {
       $_SESSION['finish'] = true;
-      require_once '../contact/action/create_csv/action.php';
-      header('Location: ./complete.php');
+      require_once get_template_directory() . '/contact/action/create_csv/action.php';
+      header('Location: ../complete/index.php');
       exit;
     }
   }
-  include_once './action/views/index_view.php';
+  include_once get_template_directory() . '/contact/action/views/index_view.php';
 } else {
-  include_once './action/views/index_view.php';
+  include_once get_template_directory() . '/contact/action/views/index_view.php';
 }
+?>
+<?php get_footer(); ?>
