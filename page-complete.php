@@ -7,6 +7,7 @@ Template Name: 固定ページ／麹町法人会について
 session_start();
 ?>
 <?php
+require_once get_template_directory() . '/contact/config/index.php';
 if(
     isset($_SESSION['csrf_token']) && !empty($_SESSION['csrf_token']) && isset($_SESSION['finish'])
 ) {
@@ -18,6 +19,7 @@ if(
     $mail = $_SESSION['mail'];
     // $user_name = $_SESSION['user_name'];
     $seminar = $_SESSION['seminar'];
+    $seminar_list = $_SESSION['seminar_list'];
     
     include_once get_template_directory() . '/contact/action/views/complete_view.php';
     
