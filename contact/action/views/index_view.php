@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/contact/css/style.css">
 </head>
 
 <body>
@@ -148,7 +148,7 @@
       <!-- 参加人数追加ボタン 始まり-->
       <div id="add" class="addition_button">
         <div class="position">
-          <img src="img/add_square_icon.png" />
+          <img src="<?php echo get_template_directory_uri(); ?>/contact/img/add_square_icon.png" />
           <span>(参加人数を追加する)</span>
         </div>
       </div>
@@ -162,7 +162,8 @@
     </form>
   </main>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="./js/add_participant.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/contact/js/add_participant.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/contact/js/validation.js"></script>
 </body>
 
 </html>

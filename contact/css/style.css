@@ -16,7 +16,7 @@
   /* フォーム全体 */
   .validationForm {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 30px;
     padding: 0 10px;
   }
   
