@@ -13,18 +13,18 @@
   <?php foreach ((array)$seminar_list as $val1) : ?>
     <!--  空データの場合スキップ -->
     <?php if (empty($val1)) continue; ?>
+    <div class="confirmation__seminar-title"><?php echo $val1[0] ?></div>
     <!--  参加者データループ -->
+    <p>参加方法：<?php echo METHOD[$val1[1]] ?></p>
+    <p>テキスト部数：<?php echo $val1[2] ?>冊</p>
+    <p>法人名：<?php echo $corp_name ?></p>
+    <p>電話番号：<?php echo $tel ?></p>
+    <p>会員ステータス：<?php echo CATEGORY[$category] ?></p>
     <?php foreach ($name as $idx => $val2) : ?>
-      <h3>セミナー：<?php echo $val1[0] ?></h3>
-      <p>参加方法：<?php echo METHOD[$val1[1]] ?></p>
-      <p>テキスト部数：<?php echo $val1[2] ?>冊</p>
-      <br>
-      <p>法人名：<?php echo $corp_name ?></p>
-      <p>電話番号：<?php echo $tel ?></p>
-      <p>メールアドレス：<?php echo $mail[$idx] ?></p>
-      <p>会員ステータス：<?php echo CATEGORY[$category] ?></p>
+      <p class="confirmation__participant">	&lt;参加者<?php echo $idx + 1 ?>&gt;</p>
       <p>参加者名：<?php echo $val2 ?></p>
       <p>フリガナ：<?php echo $name_kana[$idx] ?></p>
+      <p>メールアドレス：<?php echo $mail[$idx] ?></p>
     <?php endforeach; ?>
   <?php endforeach; ?>
 </div>

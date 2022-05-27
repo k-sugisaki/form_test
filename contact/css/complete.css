@@ -12,6 +12,7 @@
 
 .massage__title {
   color: #0892d8;
+  font-size: 2em;
 }
 @media (max-width: 640px) {
   .massage__title {
@@ -19,40 +20,47 @@
   }
 }
 
+.massage__title {
+  margin: 20px auto;
+}
+
 /* お申込み内容 */
 .confirmation {
   background-color: #e5edf2;
-  padding: 1% 4%;
+  padding: 1% 2%;
+  margin: 30px auto;
 }
 
 .confirmation__title {
   margin: 0;
+  height: auto;
+  width: auto;
   text-indent: 0;
+  font-size: 1.6em;
 }
 @media (max-width: 640px) {
-    .confirmation__title {
-      font-size: 20px;
-    }
+  .confirmation__title {
+    font-size: 20px;
   }
-
-/* ここから下このあと調整 */
-
-.content_title span {
-  color: #0892d8;
 }
-/* セミナータイトル名 */
-.content_title {
+
+.confirmation__seminar-title {
   font-weight: bold;
-  margin-top: 3%;
+  margin-top: 2%;
 }
-
-/* 参加方法〜メールアドレス　左余白 */
-.blank {
-  padding-left: 16px;
-}
-/* 以下よりレスポンシブ対応 */
 @media (max-width: 640px) {
-  .content_title {
+  .confirmation__seminar-title {
     margin-top: 5%;
   }
+}
+
+.confirmation__seminar-title::before {
+  display: inline-block;
+  content: "◆";
+  color: #0892d8;
+  margin-right: 0.3em;
+}
+
+.confirmation__participant {
+  font-weight: bold;
 }
