@@ -24,6 +24,7 @@ if (!isset($_SESSION['csrf_token'])) {
 require_once get_template_directory() . '/contact/config/index.php';
 require_once get_template_directory() . ACTION_DIR . '/validation/index.php';
 require_once get_template_directory() . '/contact/action/mails/mail.php';
+require_once get_template_directory() . '/contact/action/create_csv/action.php';
 
 // json読み込み
 $url = get_template_directory() . '/contact/data/seminarList.json';
@@ -128,9 +129,13 @@ if (
     }
 
     //エラーがなく且つPOSTでのリクエストの場合
-    if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg) {
+    
+
+	$output = new CsvOutputControllor();
+	$result = $output->create_csv();
+
+    if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg && $result) {
       $_SESSION['finish'] = true;
-      require_once get_template_directory() . '/contact/action/create_csv/action.php';
       header('Location: ../complete/index.php');
       exit;
     }

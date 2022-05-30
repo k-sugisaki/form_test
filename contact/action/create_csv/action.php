@@ -21,7 +21,8 @@ class CsvOutputControllor
   ];
 
   // ファイル出力場所指定
-  private $save_file = "sample.csv";
+  private $save_file_name = "sample.csv";
+  private $save_file = "wp-content/themes/koujimachi_2015/contact/data/csv/sample.csv";
 
   /**
    * CSVを生成
@@ -93,8 +94,11 @@ class CsvOutputControllor
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($this->save_file)) {
-      $files[] = $this->save_file;
+    if (file_exists($this->save_file_name)) {
+      $files[] = [
+        'fileName' => $this->save_file_name,
+        'filePath' => $this->save_file,
+      ];
     }
 
     if (isset($inq) && $inq !== '') {
@@ -107,10 +111,6 @@ class CsvOutputControllor
 
 
     $mail = new MailModel();
-    $mail->sendMadil($replace, $inquire, $files);
+	return $mail->sendMadil($replace, $inquire, $files);
   }
 }
-
-
-$output = new CsvOutputControllor();
-$output->create_csv();
