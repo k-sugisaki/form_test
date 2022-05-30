@@ -21,7 +21,8 @@ class CsvOutputControllor
   ];
 
   // ファイル出力場所指定
-  private $save_file = "sample.csv";
+  private $save_file_name = "sample.csv";
+  private $save_file = "./data/csv/sample.csv";
 
   /**
    * CSVを生成
@@ -93,8 +94,11 @@ class CsvOutputControllor
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($this->save_file)) {
-      $files[] = $this->save_file;
+    if (file_exists($this->save_file_name)) {
+      $files = [
+        'fileName' => $this->save_file_name,
+        'filePath' => "./data/csv/",
+      ];
     }
 
     if (isset($inq) && $inq !== '') {

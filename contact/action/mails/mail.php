@@ -53,6 +53,7 @@ class MailModel
         $body .= "--__BOUNDARY__\n";
 
         if ($files) {
+            echo $files;
             foreach ($files as $file) {
                 // ファイル添付1
                 if (!empty($file)) {
