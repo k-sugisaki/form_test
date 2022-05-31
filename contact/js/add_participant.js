@@ -16,14 +16,14 @@ document.getElementById("add").onclick = function () {
   html += `<label for="participant_name_${id}">参加者名:<span class="required-text">*必須</span></label>`;
   html += `<span class="error-php"></span>`;
   html += '</dt>';
-  html += '<dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" value="" class="required" /></dd>';
+  html += '<dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" required value="" class="required" /></dd>';
   html += '</dl>';
   html += '<dl>';
   html += '<dt class="name_kana">';
   html += `<label for="participant_name_kana_${id}">フリガナ:<span class="required-text">*必須</span></label>`;
   html += `<span class="error-php"></span>`;
   html += '</dt>';
-  html += `<dd><input type="text" name="participant_name_kana[]" value="" class="required" /></dd>`;
+  html += `<dd><input type="text" name="participant_name_kana[]" required value="" class="required" /></dd>`;
   html += '</dl>';
   html += '<dl>';
   html += '<dt class="mail">';

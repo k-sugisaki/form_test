@@ -97,7 +97,7 @@
               <label for="participant_name_1">参加者名:<span class="required-text">*必須</span></label>
               <span class="error-php"><?php if (isset($error['name_1'])) echo $error['name_1']; ?></span>
             </dt>
-            <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+            <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" required class="required" /></dd>
           </dl>
           <dl>
             <dt class="name_kana">
@@ -123,14 +123,14 @@
                 <label for="participant_name_<?= $id ?>">参加者名:<span class="required-text">*必須</span></label>
                 <span class="error-php"><?php if (isset($error['name_' . $id])) echo $error['name_' . $id]; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
+              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" required <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
             </dl>
             <dl>
               <dt class="name_kana">
                 <label for="participant_name_kana_<?= $id ?>">フリガナ:<span class="required-text">*必須</span></label>
                 <span class="error-php"><?php if (isset($error['name_kana_' . $id])) echo $error['name_kana_.$id']; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) : ?> value="<?= $POST_participant_name_kana[$id] ?>" <?php endif; ?> class="required" /></dd>
+              <dd><input type="text" name="participant_name_kana[]" required <?php if (isset($POST_participant_name_kana[$id])) : ?> value="<?= $POST_participant_name_kana[$id] ?>" <?php endif; ?> class="required" /></dd>
             </dl>
             <dl>
               <dt class="mail">
@@ -153,8 +153,8 @@
       </div>
       <!-- 参加人数追加ボタン 終わり-->
       <div class="contact_detail">
-        <label for="message" class="label">お問合せ内容</label>
-        <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
+        <label for="inquire" class="label">お問合せ内容</label>
+        <textarea name="inquire" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
       </div>
       <button name="submitted" type="submit" class="btn btn-primary">送信する</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
