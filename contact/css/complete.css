@@ -3,8 +3,7 @@
   color: #333;
 }
 
-/* 横幅最大1000px */
-.completion_form {
+.massage {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
@@ -13,6 +12,7 @@
 .massage__title {
   color: #0892d8;
   font-size: 2em;
+  margin: 20px auto;
 }
 @media (max-width: 640px) {
   .massage__title {
@@ -20,12 +20,10 @@
   }
 }
 
-.massage__title {
-  margin: 20px auto;
-}
 
 /* お申込み内容 */
 .confirmation {
+  max-width: 1000px;
   background-color: #e5edf2;
   padding: 1% 2%;
   margin: 30px auto;

@@ -29,4 +29,3 @@ if(
     header('Location: ../index.php');
 }
 ?>
-<?php get_footer(); ?>

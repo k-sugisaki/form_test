@@ -39,7 +39,7 @@
             </div>
             <div class="seminar-item__entry-metod">
               <?php if ($seminar["holding_by_zoom"]) : ?>
-                <span>参加方法</span>
+                <span>参加方法</span><span class="required-text">*</span>
                 <?php if ($view_flag === 1) : ?>
                   <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" /><?=METHOD['venue']?></label>
                   <label class="radio-behind"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" /><?=METHOD['zoom']?></label>
@@ -53,7 +53,7 @@
               <span class="error-php"><?php if (isset($error['seminar_method_'.$index])) echo $error['seminar_method_'.$index]; ?></span>
             </div>
             <div class="seminar-item__seminar-text">
-              <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
+              <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*</span></label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
                 <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" />冊
               <?php else : ?>

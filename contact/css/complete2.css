@@ -1,0 +1,57 @@
+/* css */
+* {
+    color: #333;
+}
+
+/* 横幅最大1000px */
+.completion_form {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* h1 「お申し込みを受付けました」 文字 */
+.accepted {
+    color: #0892d8;
+}
+
+/* お申込み内容　背景色を#E5EDF2(薄いブルー)にする */
+.content_confirmation {
+    background-color: #E5EDF2;
+    padding: 1% 0 4% 1%;
+}
+
+/* お申込み内容　content_list 余白の調節 */
+.content_list {
+    padding: 0;
+    margin: 0;
+}
+/* h2　「お申込み内容」 文字 */
+.accepted_title{
+    margin:0;
+}
+.content_title span{
+    color:#0892d8;
+}
+/* セミナータイトル名 */
+.content_title {
+    font-weight: bold;
+    margin-top: 3%;
+}
+
+/* 参加方法〜メールアドレス　左余白 */
+.blank {
+    padding-left: 16px;
+}
+/* 以下よりレスポンシブ対応 */
+@media(max-width: 640px) {
+    .accepted{
+        font-size:24px;
+    }
+    .accepted_title{
+        font-size:20px;
+    }
+    .content_title{
+        margin-top:5%;
+    }
+}
