@@ -10,48 +10,57 @@
     padding: 0 10px;
 }
 
-/* h1 「お申し込みを受付けました」 文字 */
-.accepted {
-    color: #0892d8;
+.massage__title {
+  color: #0892d8;
+  font-size: 2em;
+}
+@media (max-width: 640px) {
+  .massage__title {
+    font-size: 24px;
+  }
 }
 
-/* お申込み内容　背景色を#E5EDF2(薄いブルー)にする */
-.content_confirmation {
-    background-color: #E5EDF2;
-    padding: 1% 0 4% 1%;
+.massage__title {
+  margin: 20px auto;
 }
 
-/* お申込み内容　content_list 余白の調節 */
-.content_list {
-    padding: 0;
-    margin: 0;
-}
-/* h2　「お申込み内容」 文字 */
-.accepted_title{
-    margin:0;
-}
-.content_title span{
-    color:#0892d8;
-}
-/* セミナータイトル名 */
-.content_title {
-    font-weight: bold;
-    margin-top: 3%;
+/* お申込み内容 */
+.confirmation {
+  background-color: #e5edf2;
+  padding: 1% 2%;
+  margin: 30px auto;
 }
 
-/* 参加方法〜メールアドレス　左余白 */
-.blank {
-    padding-left: 16px;
+.confirmation__title {
+  margin: 0;
+  height: auto;
+  width: auto;
+  text-indent: 0;
+  font-size: 1.6em;
 }
-/* 以下よりレスポンシブ対応 */
-@media(max-width: 640px) {
-    .accepted{
-        font-size:24px;
-    }
-    .accepted_title{
-        font-size:20px;
-    }
-    .content_title{
-        margin-top:5%;
-    }
+@media (max-width: 640px) {
+  .confirmation__title {
+    font-size: 20px;
+  }
+}
+
+.confirmation__seminar-title {
+  font-weight: bold;
+  margin-top: 2%;
+}
+@media (max-width: 640px) {
+  .confirmation__seminar-title {
+    margin-top: 5%;
+  }
+}
+
+.confirmation__seminar-title::before {
+  display: inline-block;
+  content: "◆";
+  color: #0892d8;
+  margin-right: 0.3em;
+}
+
+.confirmation__participant {
+  font-weight: bold;
 }
