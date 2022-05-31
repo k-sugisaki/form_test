@@ -100,7 +100,7 @@ class CsvOutputControllor
     }
 
     if (isset($inq) && $inq !== '') {
-      $inqire = $inq;
+      $inquire = $inq;
     }
 
     if (isset($rep) && $rep !== '') {
