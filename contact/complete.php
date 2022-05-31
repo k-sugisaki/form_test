@@ -1,5 +1,13 @@
 <?php
+/*
+Template Name: 固定ページ／麹町法人会について
+*/
+?>
+<?php
 session_start();
+?>
+<?php
+require_once '../contact/config/index.php';
 if(
     isset($_SESSION['csrf_token']) && !empty($_SESSION['csrf_token']) && isset($_SESSION['finish'])
 ) {
@@ -11,11 +19,13 @@ if(
     $mail = $_SESSION['mail'];
     // $user_name = $_SESSION['user_name'];
     $seminar = $_SESSION['seminar'];
-    
+    $seminar_list = $_SESSION['seminar_list'];
+
     include_once './action/views/complete_view.php';
-    
+
     $_SESSION = array();
     session_destroy();
 } else { 
-    header('Location: ./');
+    header('Location: ../index.php');
 }
+?>
