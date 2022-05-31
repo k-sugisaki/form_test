@@ -153,8 +153,8 @@
       </div>
       <!-- 参加人数追加ボタン 終わり-->
       <div class="contact_detail">
-        <label for="inquire" class="label">お問合せ内容</label>
-        <textarea name="inquire" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
+        <label for="message" class="label">お問合せ内容</label>
+        <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
       </div>
       <button name="submitted" type="submit" class="btn btn-primary">送信する</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
