@@ -69,13 +69,13 @@
   input[type="checkbox"] {
     margin-right: 0.6em;
   }
-  .checked {
+  .seminar-item__entry-metod,
+  .seminar-item__seminar-text {
     display: none;
-    background-color: #fff;
-    padding-left: 6%;
   }
   /* チェックON表示 */
-  input:checked ~ .checked {
+  input:checked ~ .seminar-item__entry-metod,
+  input:checked ~ .seminar-item__seminar-text {
     display: block;
   }
   

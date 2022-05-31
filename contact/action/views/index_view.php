@@ -29,14 +29,12 @@
         </p>
         <?php foreach ($arr as $index => $seminar) : ?>
           <div class="seminar__item">
-            <div>
               <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="0" />
               <?php if ($view_flag === 2 && (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][0]) && $POST_seminars[$index][0] == $seminar["title"]))) : ?>
-                <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked /><?= $seminar["title"] ?></label>
+                <input type="checkbox" id="<?= 'seminar_' . $seminar["id"]?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked/><label for="<?= 'seminar_' . $seminar["id"]?>"><?= $seminar["date"].' '. $seminar["title"] ?></label>
               <?php else : ?>
-                <label><input type="checkbox" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><?= $seminar["title"] ?></label>
+                <input type="checkbox" id="<?= 'seminar_' . $seminar["id"]?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><label for="<?= 'seminar_' . $seminar["id"]?>"><?= $seminar["date"].' '. $seminar["title"] ?></label>
               <?php endif; ?>
-            </div>
             <div class="seminar-item__entry-metod">
               <?php if ($seminar["holding_by_zoom"]) : ?>
                 <span>参加方法</span>
