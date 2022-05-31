@@ -124,7 +124,7 @@ if (
     $_SESSION['seminar_list'] = $POST_seminars;
     $_SESSION['seminar'] = $complete_seminars;
 
-    if (!isset($POST_inquire) || $POST_inquire == '') {
+    if (isset($POST_inquire) && !($POST_inquire == '')) {
       $_SESSION['inquire'] = $POST_inquire;
     }
 
