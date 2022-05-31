@@ -79,9 +79,7 @@ class CsvOutputControllor
     rewind($fp);
 
     //ストリームの中身をテキストデータに変換、
-    //さらにテキストデータをUTF-8からSJIS-winに変換する
     $str = str_replace(PHP_EOL, "\r\n", stream_get_contents($fp));
-    $str = mb_convert_encoding($str, 'SJIS-win', 'UTF-8');
 
     //一時データのファイルポインタを閉じる
     fclose($fp);
