@@ -4,7 +4,7 @@ class InquireClass
   function trimInput()
   {
     $params = [];
-    $params["inquire"] = trim(filter_input(INPUT_POST, 'inquire'));
+    $params["inquire"] = trim(filter_input(INPUT_POST, 'message'));
     return $params;
   }
 

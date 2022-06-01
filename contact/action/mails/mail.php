@@ -50,6 +50,7 @@ class MailModel
         if ($inquire) {
             $message .= $setIni['body2'];
             $message = str_replace('{inquire}', $inquire, $message);
+            $message = str_replace('\n', "\n", $message);
         }
 
         $mime_type = "application/octet-stream";
