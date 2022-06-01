@@ -51,7 +51,9 @@ class CsvOutputControllor
 
     //fputcsvでCSVデータを作る
     foreach ($this->data as $val) {
-      fputcsv($fp, $val);
+      $out1 = $this->__fCsvPut($val);
+
+      fwrite($fp, $out1);
     }
     // セミナーデータループ
     foreach ($seminar as $val1) {
@@ -70,7 +72,9 @@ class CsvOutputControllor
           'method' => METHOD[$val1[1]],
           'text' => $val1[2],
         ];
-        fputcsv($fp, $array);
+        $out2 = $this->__fCsvPut($array);
+
+        fwrite($fp, $out2);
       }
     }
 
@@ -112,5 +116,21 @@ class CsvOutputControllor
 
     $mail = new MailModel();
 	return $mail->sendMadil($replace, $inquire, $files);
+  }
+
+  /**
+   * CSV用書き出しデータ整形
+   *
+   * @param array $array
+   * @return void
+   */
+  private function __fCsvPut($array)
+  {
+    $out = '';
+    $row_tmp = '"';
+    $row_tmp .= implode('","', $array);
+    $row_tmp .= '"' . "\n";
+    $out .= $row_tmp;
+    return $out;
   }
 }
