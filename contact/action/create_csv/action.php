@@ -21,7 +21,7 @@ class CsvOutputControllor
   ];
 
   // ファイル出力場所指定
-  private $save_file_name = "sample.csv";
+  // private $save_file_name = "sample.csv";
   private $save_file = "wp-content/themes/koujimachi_2015/contact/data/csv/sample.csv";
 
   /**
@@ -96,9 +96,9 @@ class CsvOutputControllor
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($this->save_file_name)) {
+    if (file_exists($this->save_file)) {
       $files[] = [
-        'fileName' => $this->save_file_name,
+        'fileName' => date('YmdHms') . '.csv',
         'filePath' => $this->save_file,
       ];
     }
@@ -113,7 +113,7 @@ class CsvOutputControllor
 
 
     $mail = new MailModel();
-	return $mail->sendMadil($replace, $inquire, $files);
+    return $mail->sendMadil($replace, $inquire, $files);
   }
 
   /**
