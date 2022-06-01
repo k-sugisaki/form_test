@@ -20,7 +20,6 @@ if(
     // $user_name = $_SESSION['user_name'];
     $seminar = $_SESSION['seminar'];
     $seminar_list = $_SESSION['seminar_list'];
-    $inquire = $_SESSION['inquire'];
     
     include_once get_template_directory() . '/contact/action/views/complete_view.php';
     
