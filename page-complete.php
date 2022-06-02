@@ -6,6 +6,7 @@ Template Name: 固定ページ／麹町法人会について
 <?php
 session_start();
 ?>
+<?php get_header(); ?>
 <?php
 require_once get_template_directory() . '/contact/config/index.php';
 if(
@@ -29,3 +30,4 @@ if(
     header('Location: ../index.php');
 }
 ?>
+<?php get_footer(); ?>
