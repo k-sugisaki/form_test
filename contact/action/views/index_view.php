@@ -31,7 +31,7 @@
           <div class="seminar__item">
             <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="0" />
             <?php if ($view_flag === 2 && (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][0]) && $POST_seminars[$index][0] == $seminar["title"]))) : ?>
-              <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"] ?></label>
+              <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" class="checkBoxes" checked /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"] ?></label>
             <?php else : ?>
               <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"] ?></label>
             <?php endif; ?>
@@ -156,11 +156,12 @@
         <label for="message" class="label">お問合せ内容</label>
         <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
       </div>
-      <button name="submitted" type="submit" class="btn btn-primary">送信する</button>
+      <button name="submitted" type="submit" id="submit" class="btn btn-primary">送信する</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
     </form>
   </main>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="./js/validation.js"></script>
   <script src="./js/add_participant.js"></script>
 </body>
 
