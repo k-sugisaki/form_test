@@ -37,7 +37,7 @@
             <?php endif; ?>
             <div class="seminar-item__entry-metod">
               <?php if ($seminar["holding_by_zoom"]) : ?>
-                <span>参加方法</span>
+                <span>参加方法</span><span class="required-text">*必須</span>
                 <?php if ($view_flag === 1) : ?>
                   <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" /><?= METHOD['venue'] ?></label>
                   <label class="radio-behind"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" /><?= METHOD['zoom'] ?></label>
@@ -51,7 +51,7 @@
               <span class="error-php"><?php if (isset($error['seminar_method_' . $index])) echo $error['seminar_method_' . $index]; ?></span>
             </div>
             <div class="seminar-item__seminar-text">
-              <label for="<?= 'seminar_text_' . $index ?>">テキスト</label>
+              <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*必須</span></label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
                 <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" />冊
               <?php else : ?>
@@ -97,14 +97,14 @@
               <label for="participant_name_1">参加者名:<span class="required-text">*必須</span></label>
               <span class="error-php"><?php if (isset($error['name_1'])) echo $error['name_1']; ?></span>
             </dt>
-            <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" class="required" /></dd>
+            <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" required class="required" /></dd>
           </dl>
           <dl>
             <dt class="name_kana">
               <label for="participant_name_kana_1">フリガナ:<span class="required-text">*必須</span></label>
               <span class="error-php"><?php if (isset($error['name_kana_1'])) echo $error['name_kana_1']; ?></span>
             </dt>
-            <dd><input type="text" name="participant_name_kana[]" class="required" /></dd>
+            <dd><input type="text" name="participant_name_kana[]" required class="required" /></dd>
           </dl>
           <dl>
             <dt class="mail">
@@ -123,14 +123,14 @@
                 <label for="participant_name_<?= $id ?>">参加者名:<span class="required-text">*必須</span></label>
                 <span class="error-php"><?php if (isset($error['name_' . $id])) echo $error['name_' . $id]; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
+              <dd><input type="text" name="participant_name[]" required data-error-required="お名前は必須です。" <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
             </dl>
             <dl>
               <dt class="name_kana">
                 <label for="participant_name_kana_<?= $id ?>">フリガナ:<span class="required-text">*必須</span></label>
                 <span class="error-php"><?php if (isset($error['name_kana_' . $id])) echo $error['name_kana_.$id']; ?></span>
               </dt>
-              <dd><input type="text" name="participant_name_kana[]" <?php if (isset($POST_participant_name_kana[$id])) : ?> value="<?= $POST_participant_name_kana[$id] ?>" <?php endif; ?> class="required" /></dd>
+              <dd><input type="text" name="participant_name_kana[]" required <?php if (isset($POST_participant_name_kana[$id])) : ?> value="<?= $POST_participant_name_kana[$id] ?>" <?php endif; ?> class="required" /></dd>
             </dl>
             <dl>
               <dt class="mail">

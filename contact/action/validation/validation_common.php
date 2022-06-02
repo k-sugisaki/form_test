@@ -24,4 +24,4 @@ function checkInput($var)
 }
 
 $error_text = '不正な入力です。';
-$empty_text = '不正な入力です。';
+$empty_text = '入力してください。';

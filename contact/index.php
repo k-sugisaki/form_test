@@ -29,6 +29,7 @@ $POST_corp_name = isset($_POST['corp_name']) ? $POST_corp_name : NULL;
 $POST_tel = isset($_POST['tel']) ? $POST_tel : NULL;
 $view_flag = 1;
 $complete_flg = 0;
+
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
 if (
