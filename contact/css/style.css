@@ -109,6 +109,10 @@
     color: #f00;
     font-weight: bold;
   }
+
+  .error-php {
+    color: #f00;
+  }
   
   /* 余白調整 */
   dl {
