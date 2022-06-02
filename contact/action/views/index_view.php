@@ -26,14 +26,15 @@
       <div class="seminar__list">
         <p class="item__title">
           タイトル名<span class="required-text">*必須（複数選択可能です）</span>
+          <span class="error-php"><?php if (isset($error['seminar_title_' . $index])) echo $error['seminar_title_' . $index]; ?></span>
         </p>
         <?php foreach ($arr as $index => $seminar) : ?>
           <div class="seminar__item">
             <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="0" />
             <?php if ($view_flag === 2 && (isset($POST_seminars[$index]) && (isset($POST_seminars[$index][0]) && $POST_seminars[$index][0] == $seminar["title"]))) : ?>
-              <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"] ?></label>
+              <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" checked /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"]. ' ' . $seminar["time"] ?></label>
             <?php else : ?>
-              <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"] ?></label>
+              <input type="checkbox" id="<?= 'seminar_' . $seminar["id"] ?>" name="<?= 'seminar[' . $index . '][seminar_title]' ?>" value="<?= $seminar["title"] ?>" /><label for="<?= 'seminar_' . $seminar["id"] ?>"><?= $seminar["date"] . ' ' . $seminar["title"]. ' ' . $seminar["time"] ?></label>
             <?php endif; ?>
             <div class="seminar-item__entry-metod">
               <?php if ($seminar["holding_by_zoom"]) : ?>
@@ -60,6 +61,7 @@
               <span class="error-php"><?php if (isset($error['seminar_text_' . $index])) echo $error['seminar_text_' . $index]; ?></span>
             </div>
             <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_date]' ?>" value="<?= $seminar["date"] ?>" />
+            <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_time]' ?>" value="<?= $seminar["time"] ?>" />
           </div>
         <?php endforeach; ?>
       </div>

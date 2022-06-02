@@ -22,7 +22,7 @@
   <?php foreach ((array)$seminar_list as $val1) : ?>
     <!--  空データの場合スキップ -->
     <?php if (empty($val1)) continue; ?>
-    <div class="confirmation__seminar-title"><?php echo $val1[3].' '.$val1[0] ?></div>
+    <div class="confirmation__seminar-title"><?php echo $val1[3].' '.$val1[0].' '.$val1[4] ?></div>
     <!--  参加者データループ -->
     <p>参加方法：<?php echo METHOD[$val1[1]] ?></p>
     <p>テキスト部数：<?php echo $val1[2] ?>冊</p>
