@@ -132,13 +132,7 @@ if (
     }
 
     //エラーがなく且つPOSTでのリクエストの場合
-
-    // csvファイル名・出力場所指定
-    date_default_timezone_set('Asia/Tokyo');
-    $file_name = date("YmdHis") . '.csv';
-    $file_path = 'wp-content/themes/koujimachi_2015/contact/data/csv/' . $file_name;
-
-    $output = new CsvOutputControllor($file_name, $file_path);
+    $output = new CsvOutputControllor();
     $result = $output->create_csv();
 
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg && $result) {

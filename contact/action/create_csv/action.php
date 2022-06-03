@@ -20,10 +20,6 @@ class CsvOutputControllor
     )
   ];
 
-  // ファイル出力場所指定
-  private $save_file_name;
-  private $save_file;
-
   /**
    * CSVを生成
    * @param array  CSVファイルヘッダーデータ
@@ -45,6 +41,11 @@ class CsvOutputControllor
     $inq = $_SESSION['inquire'];
 
     $rep = null;
+
+    // csvファイル名・出力場所指定
+    date_default_timezone_set('Asia/Tokyo');
+    $save_file_name = date("YmdHis") . '.csv';
+    $save_file = '"wp-content/themes/koujimachi_2015/contact/data/csv/' . $save_file_name . '"';
 
     //一時データを開く
     $fp = fopen('php://temp', 'r+b');
@@ -89,17 +90,17 @@ class CsvOutputControllor
     fclose($fp);
 
     //CSVファイルを生成して、データを書き込んで保存する
-    $fp2 = fopen($this->save_file,  "w");
+    $fp2 = fopen($save_file,  "w");
     fwrite($fp2, $str);
     fclose($fp2);
 
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($this->save_file_name)) {
+    if (file_exists($save_file_name)) {
       $files[] = [
-        'fileName' => $this->save_file_name,
-        'filePath' => $this->save_file,
+        'fileName' => $save_file_name,
+        'filePath' => $save_file,
       ];
     }
 
