@@ -120,7 +120,7 @@ if (
     $_SESSION['corp_name'] = $POST_corp_name;
     $_SESSION['tel'] = $POST_tel;
     $_SESSION['category'] = $POST_category;
-    
+
     $_SESSION['participant_name'] = $POST_participant_name;
     $_SESSION['participant_name_kana'] = $POST_participant_name_kana;
     $_SESSION['mail'] = $POST_mail;
@@ -132,10 +132,14 @@ if (
     }
 
     //エラーがなく且つPOSTでのリクエストの場合
-    
 
-	$output = new CsvOutputControllor();
-	$result = $output->create_csv();
+    // csvファイル名・出力場所指定
+    date_default_timezone_set('Asia/Tokyo');
+    $file_name = date("YmdHis") . '.csv';
+    $file_path = 'wp-content/themes/koujimachi_2015/contact/data/csv/' . $file_name;
+
+    $output = new CsvOutputControllor($file_name, $file_path);
+    $result = $output->create_csv();
 
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg && $result) {
       $_SESSION['finish'] = true;

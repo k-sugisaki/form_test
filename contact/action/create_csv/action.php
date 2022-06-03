@@ -21,8 +21,8 @@ class CsvOutputControllor
   ];
 
   // ファイル出力場所指定
-  // private $save_file_name = "sample.csv";
-  private $save_file = "wp-content/themes/koujimachi_2015/contact/data/csv/sample.csv";
+  private $save_file_name;
+  private $save_file;
 
   /**
    * CSVを生成
@@ -96,9 +96,9 @@ class CsvOutputControllor
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($this->save_file)) {
+    if (file_exists($this->save_file_name)) {
       $files[] = [
-        'fileName' => date('YmdHms') . '.csv',
+        'fileName' => $this->save_file_name,
         'filePath' => $this->save_file,
       ];
     }
