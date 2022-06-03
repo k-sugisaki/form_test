@@ -26,7 +26,7 @@
       <div class="seminar__list">
         <p class="item__title">
           タイトル名<span class="required-text">*必須（複数選択可能です）</span>
-          <span class="error-php"><?php if (isset($error['seminar_title_' . $index])) echo $error['seminar_title_' . $index]; ?></span>
+          <span class="error-php"><?php if (isset($error['seminars'])) echo $error['seminars']; ?></span>
         </p>
         <?php foreach ($arr as $index => $seminar) : ?>
           <div class="seminar__item">
@@ -38,7 +38,7 @@
             <?php endif; ?>
             <div class="seminar-item__entry-metod">
               <?php if ($seminar["holding_by_zoom"]) : ?>
-                <span>参加方法</span><span class="required-text">*</span>
+                <span>参加方法</span><span class="required-text">*必須</span>
                 <?php if ($view_flag === 1) : ?>
                   <label class="radio-previous"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="venue" /><?= METHOD['venue'] ?></label>
                   <label class="radio-behind"><input type="radio" name="<?= 'seminar[' . $index . '][entry_method]' ?>" value="zoom" /><?= METHOD['zoom'] ?></label>
@@ -52,7 +52,7 @@
               <span class="error-php"><?php if (isset($error['seminar_method_' . $index])) echo $error['seminar_method_' . $index]; ?></span>
             </div>
             <div class="seminar-item__seminar-text">
-              <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*</span></label>
+              <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*必須</span></label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
                 <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" />冊
               <?php else : ?>
