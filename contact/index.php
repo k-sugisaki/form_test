@@ -80,12 +80,14 @@ if (
     }
     $seminar = $_POST['seminar'];
     $complete_seminars = "";
+    $check_seminars = false;
     foreach ((array)$seminar as $index => $seminars) {
       $trimSeminar = array_map('trim', $seminars);
       if ($seminars['seminar_title'] === '0') {
         $POST_seminars[] = [];
         continue;
       }
+      $check_seminars = true;
       if (!$complete_seminars) $complete_seminars = $seminars['seminar_title'];
       if (
         (isset($trimSeminar['entry_method']) && $trimSeminar['entry_method'] === '')
@@ -105,12 +107,13 @@ if (
         $complete_flg = 0;
       }
     }
+    if (!$check_seminars) $error['seminars'] = 'セミナーを選択してください。';
 
     //それぞれの値をセッションに保存
     $_SESSION['corp_name'] = $POST_corp_name;
     $_SESSION['tel'] = $POST_tel;
     $_SESSION['category'] = $POST_category;
-    
+
     $_SESSION['participant_name'] = $POST_participant_name;
     $_SESSION['participant_name_kana'] = $POST_participant_name_kana;
     $_SESSION['mail'] = $POST_mail;

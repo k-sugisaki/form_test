@@ -26,6 +26,7 @@
       <div class="seminar__list">
         <p class="item__title">
           タイトル名<span class="required-text">*必須（複数選択可能です）</span>
+          <span class="error-php"><?php if (isset($error['seminars'])) echo $error['seminars']; ?></span>
         </p>
         <?php foreach ($arr as $index => $seminar) : ?>
           <div class="seminar__item">
