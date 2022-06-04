@@ -20,6 +20,8 @@ class CsvOutputControllor
     )
   ];
 
+  private $filePath = 'wp-content/themes/koujimachi_2015/contact/data/csv/';
+
   /**
    * CSVを生成
    * @param array  CSVファイルヘッダーデータ
@@ -45,7 +47,7 @@ class CsvOutputControllor
     // csvファイル名・出力場所指定
     date_default_timezone_set('Asia/Tokyo');
     $save_file_name = date("YmdHis") . '.csv';
-    $save_file = '"wp-content/themes/koujimachi_2015/contact/data/csv/' . $save_file_name . '"';
+    $save_file =  $this->filePath. $save_file_name;
 
     //一時データを開く
     $fp = fopen('php://temp', 'r+b');
@@ -97,11 +99,13 @@ class CsvOutputControllor
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($save_file_name)) {
+    if (file_exists($save_file)) {
       $files[] = [
         'fileName' => $save_file_name,
         'filePath' => $save_file,
       ];
+    } else {
+      return false;
     }
 
     if (isset($inq) && $inq !== '') {
@@ -111,7 +115,6 @@ class CsvOutputControllor
     if (isset($rep) && $rep !== '') {
       $replace = $rep;
     }
-
 
     $mail = new MailModel();
     return $mail->sendMadil($replace, $inquire, $files);
