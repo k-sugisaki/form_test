@@ -14,7 +14,7 @@ class CsvOutputControllor
       'name_kana' => 'フリガナ',
       'name' => '参加者名',
       'mail' => 'メールアドレス',
-      'category' => '会員/一般',
+      'category' => '会員／一般',
       'method' => '参加方法',
       'text' => 'テキスト',
     )
