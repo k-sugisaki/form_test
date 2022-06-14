@@ -14,15 +14,14 @@ class CsvOutputControllor
       'name_kana' => 'フリガナ',
       'name' => '参加者名',
       'mail' => 'メールアドレス',
-      'category' => '会員/一般',
+      'category' => '会員／一般',
       'method' => '参加方法',
       'text' => 'テキスト',
     )
   ];
 
   // ファイル出力場所指定
-  private $save_file_name = "sample.csv";
-  private $save_file = "wp-content/themes/koujimachi_2015/contact/data/csv/sample.csv";
+  private $filePath = 'contact\data\csv';
 
   /**
    * CSVを生成
@@ -45,6 +44,10 @@ class CsvOutputControllor
     $inq = $_SESSION['inquire'];
 
     $rep = null;
+
+    date_default_timezone_set('Asia/Tokyo');
+    $save_file_name = date("YmdHis") . '.csv';
+    $save_file =  $this->filePath. $save_file_name;
 
     //一時データを開く
     $fp = fopen('php://temp', 'r+b');
@@ -98,11 +101,13 @@ class CsvOutputControllor
     $files = [];
     $replace = null;
     $inquire = null;
-    if (file_exists($this->save_file_name)) {
+    if (file_exists($this->save_file)) {
       $files[] = [
         'fileName' => $this->save_file_name,
         'filePath' => $this->save_file,
       ];
+    } else {
+      return false;
     }
 
     if (isset($inq) && $inq !== '') {
@@ -112,7 +117,6 @@ class CsvOutputControllor
     if (isset($rep) && $rep !== '') {
       $replace = $rep;
     }
-
 
     $mail = new MailModel();
 	return $mail->sendMadil($replace, $inquire, $files);
