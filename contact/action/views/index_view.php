@@ -158,13 +158,14 @@
         <label for="message" class="label">お問合せ内容</label>
         <textarea name="message" cols="120" rows="10" class="form-width" aria-required="true" aria-invalid="false"></textarea>
       </div>
-      <button name="submitted" type="submit" class="btn btn-primary">送信する</button>
+      <button name="submitted" type="submit" id="submitted" class="btn btn-primary">送信する</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
     </form>
   </main>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/add_participant.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/validation.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/contact/js/btn_submit.js"></script>
 </body>
 
 </html>
