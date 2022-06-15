@@ -5,8 +5,10 @@ Template Name: 固定ページ／麹町法人会について
 ?>
 <?php
 session_start();
-?>
-<?php
+
+//クリックジャッキング対策
+header('X-FRAME-OPTIONS: SAMEORIGIN');
+
 require_once '../contact/config/index.php';
 if(
     isset($_SESSION['csrf_token']) && !empty($_SESSION['csrf_token']) && isset($_SESSION['finish'])

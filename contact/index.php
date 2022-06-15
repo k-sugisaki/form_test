@@ -4,6 +4,9 @@ if (session_status() == PHP_SESSION_NONE) {
   ob_start();
 }
 
+//クリックジャッキング対策
+header('X-FRAME-OPTIONS: SAMEORIGIN');
+
 // ランダムな文字列を生成してセッションに設定
 if (!isset($_SESSION['csrf_token'])) {
   $toke_byte = openssl_random_pseudo_bytes(16);
