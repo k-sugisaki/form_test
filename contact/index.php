@@ -130,7 +130,7 @@ if (
     //エラーがなく且つPOSTでのリクエストの場合
     if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg) {
       $_SESSION['finish'] = true;
-      require_once '../contact/action/create_csv/action.php';
+      require_once './action/create_csv/action.php';
       header('Location: ./complete.php');
       exit;
     }

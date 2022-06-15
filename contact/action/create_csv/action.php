@@ -21,7 +21,7 @@ class CsvOutputControllor
   ];
 
   // ファイル出力場所指定
-  private $filePath = 'contact\data\csv';
+  private $filePath = 'contact/data/csv';
 
   /**
    * CSVを生成
