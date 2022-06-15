@@ -1,14 +1,5 @@
-<!doctype html>
-<html lang="ja">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/contact/css/complete.css">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/contact/css/complete.css">
-</head>
-
-<body>
 <div class="massage">
   <h1 class="massage__title">お申込みを受付けました。</h1>
   <p class="massage__text">ご入力頂いたメールアドレス宛に、お申込み内容の確認メールを自動送信しております。<br>
@@ -37,6 +28,3 @@
     <?php endforeach; ?>
   <?php endforeach; ?>
 </div>
-
-</body>
-</html>
