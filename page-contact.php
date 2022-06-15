@@ -39,12 +39,10 @@ $view_flag = 1;
 $complete_flg = 0;
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
-if (
-  isset($_SESSION["csrf_token"])
-  && $token === $_SESSION['csrf_token']
-) {
-  //送信ボタンが押された場合の処理
-  if (isset($_POST['submitted'])) {
+
+//送信ボタンが押された場合の処理
+if (isset($_POST['submitted'])) {
+  if (isset($_SESSION["csrf_token"]) && $token === $_SESSION['csrf_token']) {
     $_POST = checkInput($_POST);
     $error = array();
     $view_flag = 2;
@@ -140,10 +138,11 @@ if (
       header('Location: ../complete/index.php');
       exit;
     }
+    include_once get_template_directory() . '/contact/action/views/index_view.php';
+  } else {
+    $_SESSION['csrf_token'] = $csrf_token;
   }
-  include_once get_template_directory() . '/contact/action/views/index_view.php';
-} else {
-  include_once get_template_directory() . '/contact/action/views/index_view.php';
 }
+include_once get_template_directory() . '/contact/action/views/index_view.php';
 ?>
 <?php get_footer(); ?>
