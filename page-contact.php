@@ -10,13 +10,15 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // ランダムな文字列を生成してセッションに設定
+$toke_byte = openssl_random_pseudo_bytes(16);
+$csrf_token = bin2hex($toke_byte);
 if (!isset($_SESSION['csrf_token'])) {
-  $toke_byte = openssl_random_pseudo_bytes(16);
-  $csrf_token = bin2hex($toke_byte);
-  $_SESSION['csrf_token'] = $csrf_token;
+  $check_token = $csrf_token;
 } else {
-  $csrf_token = $_SESSION['csrf_token'];
+  $check_token = $_SESSION['csrf_token'];
 }
+// sessionトークンの入れ替え
+$_SESSION['csrf_token'] = $csrf_token;
 ?>
 <?php get_header(); ?>
 <?php
@@ -39,10 +41,9 @@ $view_flag = 1;
 $complete_flg = 0;
 // 先に保存したトークンと送信されたトークンが一致するか確認
 $token = filter_input(INPUT_POST, 'csrf_token');
-
-//送信ボタンが押された場合の処理
-if (isset($_POST['submitted'])) {
-  if (isset($_SESSION["csrf_token"]) && $token === $_SESSION['csrf_token']) {
+if (isset($check_token) && $token === $check_token) {
+  //送信ボタンが押された場合の処理
+  if (isset($_POST['submitted'])) {
     $_POST = checkInput($_POST);
     $error = array();
     $view_flag = 2;
@@ -138,11 +139,10 @@ if (isset($_POST['submitted'])) {
       header('Location: ../complete/index.php');
       exit;
     }
-    include_once get_template_directory() . '/contact/action/views/index_view.php';
-  } else {
-    $_SESSION['csrf_token'] = $csrf_token;
   }
+  include_once get_template_directory() . '/contact/action/views/index_view.php';
+} else {
+  include_once get_template_directory() . '/contact/action/views/index_view.php';
 }
-include_once get_template_directory() . '/contact/action/views/index_view.php';
 ?>
 <?php get_footer(); ?>
