@@ -215,6 +215,12 @@
   .btn-primary:hover {
     background-color: #e34546;
   }
+
+  .isDisable,
+  .isDisable:hover {
+    background-color: #dcdcdc;
+    color: #333;
+  }
   
   /* 以下よりレスポンシブ対応 */
   @media (max-width: 640px) {
