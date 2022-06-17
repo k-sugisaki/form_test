@@ -4,7 +4,10 @@ Template Name: 固定ページ／麹町法人会について
 */
 ?>
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+  ob_start();
+}
 ?>
 <?php get_header(); ?>
 <?php
@@ -31,3 +34,4 @@ if(
 }
 ?>
 <?php get_footer(); ?>
+<script src="<?php echo get_template_directory_uri(); ?>/contact/js/complete.js"></script>
