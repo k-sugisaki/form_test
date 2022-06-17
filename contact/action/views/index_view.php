@@ -79,7 +79,7 @@
             <label for="tel">電話番号<span class="required-text">*必須</span></label>
             <span class="error-php"><?php if (isset($error['tel'])) echo $error['tel']; ?></span>
           </dt>
-          <dd><input type="tel" id="tel" name="tel" required class="required" value="<?= $POST_tel ?>" /></dd>
+          <dd><input type="tel" id="tel" name="tel" required class="required" value="<?= $POST_tel ?>" maxlength="11"/></dd>
         </dl>
         <dl>
           <dd>
