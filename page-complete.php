@@ -33,5 +33,5 @@ if(
     header('Location: ../index.php');
 }
 ?>
-<?php get_footer(); ?>
 <script src="<?php echo get_template_directory_uri(); ?>/contact/js/complete.js"></script>
+<?php get_footer(); ?>
