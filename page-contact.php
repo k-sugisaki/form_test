@@ -132,11 +132,13 @@ if (isset($check_token) && $token === $check_token) {
       $_SESSION['inquire'] = $POST_inquire;
     }
 
-    //エラーがなく且つPOSTでのリクエストの場合
-    $output = new CsvOutputControllor();
-    $result = $output->create_csv();
+    if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST'){
+      //エラーがなく且つPOSTでのリクエストの場合
+      $output = new CsvOutputControllor();
+      $result = $output->create_csv();
+    }
 
-    if (empty($error) && $_SERVER['REQUEST_METHOD'] === 'POST' && $complete_flg && $result) {
+    if ($complete_flg && $result) {
       $_SESSION['finish'] = true;
       header('Location: ../complete/index.php');
       exit;
