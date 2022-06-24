@@ -8,7 +8,7 @@ function checkInput($var)
   } else {
     //NULLバイト攻撃対策
     if (preg_match('/\0/', $var)) {
-      die('不正な入力です。');
+      die('入力してください。');
     }
     //文字エンコードのチェック
     if (!mb_check_encoding($var, 'UTF-8')) {
