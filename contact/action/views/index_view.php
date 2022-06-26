@@ -77,9 +77,9 @@
         <dl>
           <dt class="tel">
             <label for="tel">電話番号<span class="required-text">*必須</span></label>
-            <span class="error-php"><?php if (isset($error['tel'])) echo $error['tel']; ?></span>
+            <span id="error-tel" class="error-php"><?php if (isset($error['tel'])) echo $error['tel']; ?></span>
           </dt>
-          <dd><input type="tel" id="tel" name="tel" required class="required" value="<?= $POST_tel ?>" maxlength="11"/></dd>
+          <dd><input type="tel" id="tel" name="tel" required class="required" value="<?= $POST_tel ?>" maxlength="13"/></dd>
         </dl>
         <dl>
           <dd>
@@ -96,7 +96,7 @@
         <div class="participant_info">
           <dl>
             <dt class="name">
-              <label for="participant_name_1">参加者名<span class="required-text">*必須</span></label>
+              <label for="participant_name_1">参加者名（代表者）<span class="required-text">*必須</span></label>
               <span class="error-php"><?php if (isset($error['name_1'])) echo $error['name_1']; ?></span>
             </dt>
             <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" required class="required" /></dd>
@@ -122,7 +122,7 @@
           <div class="participant_info">
             <dl>
               <dt class="name">
-                <label for="participant_name_<?= $id ?>">参加者名（代表者）<span class="required-text">*必須</span></label>
+                <label for="participant_name_<?= $id ?>">参加者名<span class="required-text">*必須</span></label>
                 <span class="error-php"><?php if (isset($error['name_' . $id])) echo $error['name_' . $id]; ?></span>
               </dt>
               <dd><input type="text" name="participant_name[]" data-error-required="お名前は必須です。" required <?php if (isset($val)) : ?> value="<?= $val ?>" <?php endif; ?>class="required" /></dd>
