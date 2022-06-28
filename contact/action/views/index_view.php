@@ -166,6 +166,7 @@
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/add_participant.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/validation.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/btn_submit.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/contact/js/unload.js"></script>
 </body>
 
 </html>
