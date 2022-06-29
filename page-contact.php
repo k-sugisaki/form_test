@@ -49,13 +49,13 @@ if (isset($check_token) && $token === $check_token) {
     $view_flag = 2;
 
     if (!isset($POST_corp_name) || $POST_corp_name == '') {
-      $error['corp_name'] = $error_text;
+      $error['corp_name'] = $empty_text;
     } else if (!isCorpName($POST_corp_name)) {
       $error['corp_name'] = $error_text;
     }
 
     if (!isset($POST_tel) || $POST_tel == '') {
-      $error['tel'] = $error_text;
+      $error['tel'] = $empty_text;
     } else if (!isPhoneNumber($POST_tel)) {
       $error['tel'] = $error_text;
     }
@@ -68,19 +68,19 @@ if (isset($check_token) && $token === $check_token) {
     if (!ctype_digit($count)) {
       for ($i = 0; $i < $count + 1; $i++) {
         if (!isset($POST_participant_name[$i]) || $POST_participant_name[$i] == '') {
-          $error['name'] = $error_text;
+          $error['name'] = $empty_text;
         } else if (!isParticipantName($POST_participant_name[$i])) {
           $error['name'] = $error_text;
         }
 
         if (!isset($POST_participant_name_kana[$i]) || $POST_participant_name_kana[$i] == '') {
-          $error['name_kana'] = $error_text;
+          $error['name_kana'] = $empty_text;
         } else if (!isParticipantNameKana($POST_participant_name_kana[$i])) {
           $error['name_kana'] = $error_text;
         }
 
         if (!isset($POST_mail[$i]) || $POST_mail[$i] == '') {
-          $error['mail'] = $error_text;
+          $error['mail'] = $empty_text;
         }
       }
     }
