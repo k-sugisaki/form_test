@@ -1,16 +1,5 @@
-<!doctype html>
-<html lang="ja">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>お申込みフォーム | 公益社団法人 麹町法人会</title>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/contact/css/style.css">
-</head>
-
-<body>
   <main>
-
     <?php
     if (isset($result) && !$result) : // 送信が失敗した場合 
     ?>
@@ -54,9 +43,9 @@
             <div class="seminar-item__seminar-text">
               <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*必須</span></label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" />冊
+                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" size="2"/>冊
               <?php else : ?>
-                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" class="input__seminar-text" />冊
+                <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" class="input__seminar-text" size="2" />冊
               <?php endif; ?>
               <span class="error-php"><?php if (isset($error['seminar_text_' . $index])) echo $error['seminar_text_' . $index]; ?></span>
             </div>
@@ -187,12 +176,10 @@
       <button name="submitted" type="submit" id="submitted" class="btn btn-primary">送信する</button>
       <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
     </form>
+    <hr class="dot-line">
   </main>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/add_participant.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/validation.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/btn_submit.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/contact/js/unload.js"></script>
-</body>
-
-</html>
