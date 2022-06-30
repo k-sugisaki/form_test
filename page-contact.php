@@ -102,7 +102,9 @@ if (isset($check_token) && $token === $check_token) {
         $error["seminar_method_$index"] = $empty_text;
       };
 
-      if (!ctype_digit($trimSeminar['seminar_text'])) {
+      if ((isset($trimSeminar['entry_method']) && $trimSeminar['seminar_text'] === '') or !isset($trimSeminar['seminar_text'])) {
+        $error["seminar_text_$index"] = $empty_text;
+      } else if (!ctype_digit($trimSeminar['seminar_text'])) {
         $error["seminar_text_$index"] = $error_text;
       } else if($trimSeminar['seminar_text'] > 100){
         $error["seminar_text_$index"] = "100以下の数字を入力してください。";
