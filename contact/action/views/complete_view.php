@@ -16,7 +16,9 @@
     <div class="confirmation__seminar-title"><?php echo $val1[3] . ' ' . $val1[0] . ' ' . $val1[4] ?></div>
     <!--  参加者データループ -->
     <p>参加方法：<?php echo METHOD[$val1[1]] ?></p>
-    <p>テキスト部数：<?php echo $val1[2] ?>冊</p>
+    <?php if (empty($val1[2])) continue; ?>
+      <p>テキスト部数：<?php echo $val1[2] ?>冊</p>
+    <?php endif; ?>
     <p>法人名：<?php echo $corp_name ?></p>
     <p>電話番号：<?php echo $tel ?></p>
     <p>会員ステータス：<?php echo CATEGORY[$category] ?></p>
