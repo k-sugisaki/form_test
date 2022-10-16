@@ -42,6 +42,7 @@
             </div>
             <div class="seminar-item__seminar-text">
             <?php if ($seminar["seminar_text"]) : ?>
+              <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*必須</span></label>
               <?php if ($view_flag === 2 && isset($POST_seminars[$index]) && isset($POST_seminars[$index][2])) : ?>
                 <input type="text" id="<?= 'seminar_text_' . $index ?>" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="<?= $POST_seminars[$index][2] ?>" class="input__seminar-text" size="2"/>冊
               <?php else : ?>
@@ -50,8 +51,7 @@
               <span class="error-php"><?php if (isset($error['seminar_text_' . $index])) echo $error['seminar_text_' . $index]; ?></span>
             <?php else : ?>
                 <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_text]' ?>" value="0" />
-              <?php endif; ?>
-              <label for="<?= 'seminar_text_' . $index ?>">テキスト<span class="required-text">*必須</span></label>
+            <?php endif; ?>
             </div>
             <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_date]' ?>" value="<?= $seminar["date"] ?>" />
             <input type="hidden" name="<?= 'seminar[' . $index . '][seminar_time]' ?>" value="<?= $seminar["time"] ?>" />
